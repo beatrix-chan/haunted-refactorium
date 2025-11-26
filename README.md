@@ -1,5 +1,7 @@
 # Haunted Refacatorium
 
+![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)
+
 ![Kiroween](Kiroween.png)
 
 [Haunted Refacatorium](https://github.com/beatrix-chan/haunted-refacatorium) is a web app that haunts legacy repos to reveal cursed code and guide their resurrection into modern architectures.
