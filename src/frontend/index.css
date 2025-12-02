@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --haunted-dark: #1a0b2e;
+  --haunted-purple: #4a1a6b;
+  --haunted-orange: #ff6b35;
+  --haunted-green: #2dd881;
+  --haunted-gray: #2d2d3a;
+}
+
+body {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--haunted-dark);
+  color: #e0e0e0;
+}
+
+.font-dyslexic {
+  font-family: 'OpenDyslexic', sans-serif;
+}
+
+.high-contrast {
+  --haunted-dark: #000000;
+  --haunted-gray: #1a1a1a;
+}
+
+.high-contrast body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Spooky animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.flicker-animation {
+  animation: flicker 2s ease-in-out infinite;
+}
