@@ -8,7 +8,18 @@
 
 This project is **vibe-coded** using [Kiro](https://kiro.dev/) &mdash; an Agentic AI that allows development from prototype to production, built by Amazon Web Service (AWS) &mdash; for participation in [Kiroween 2025 Hackathon](https://kiroween.devpost.com/). For details how Kiro is used (the write up), please read [kiro-dev.md](kiro-dev.md).
 
-## Project Details
+<details>
+
+<summary>Table of Contents</summary>
+
+- [Introduction](#introduction)
+- [Tech Stack](#tech-stack)
+- [Key Features](#key-features)
+    - [Testing Coverage](#testing-coverage)
+
+</details>
+
+## Introduction
 
 Haunted Refacatorium is a web app that "haunts" odd or unfashionable tech (e.g., jQuery apps, PHP monoliths, outdated REST APIs, etc.) and guides users through modernizing them into a fresh stack.
 
