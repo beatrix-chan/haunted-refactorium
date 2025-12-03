@@ -5,7 +5,6 @@ import {
   CodeSmell,
   FileHotspot,
   CodeMetrics,
-  SeverityLevel,
 } from '../../../shared/types';
 import { DetectionService } from '../detection/detection-service';
 import { calculateSeverity } from '../../../shared/utils/severity';
