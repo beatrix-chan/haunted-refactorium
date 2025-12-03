@@ -231,9 +231,6 @@ export class GenerationService {
     }
 
     // Swift projects (check before Java since it might contain 'java' in package names)
-    if (stackStr.includes('swift')) {
-      return ['Swift 5.10+', 'SwiftUI', 'Combine', 'Swift Package Manager', 'XCTest'];
-    }
 
     // Java projects (check for actual Java, not JavaScript)
     if (
