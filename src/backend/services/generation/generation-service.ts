@@ -229,7 +229,6 @@ export class GenerationService {
       return proposed;
     }
 
-    // Swift projects (check before Java since it might contain 'java' in package names)
 
     // Java projects (check for actual Java, not JavaScript)
     if (
