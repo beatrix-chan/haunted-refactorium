@@ -166,7 +166,7 @@ export default function HomePage() {
               aria-label="GitHub repository URL"
             />
             <p className="text-sm text-gray-400 mt-2">
-              Supports repositories that has Git Hosting. <a href="https://git-scm.com/tools/hosting">Click here to check.</a>
+              Supports repositories that have Git Hosting. <a href="https://git-scm.com/tools/hosting">Click here to check.</a>
             </p>
           </div>
         )}
