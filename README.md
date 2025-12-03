@@ -1,139 +1,169 @@
-# Haunted Refacatorium
+# 🎃 Haunted Refactorium
 
-![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) ![License](https://img.shields.io/badge/License-MIT-orange?style=for-the-badge)
+**Where legacy code goes to be resurrected**
 
-![Kiroween](Kiroween.png)
+Haunted Refactorium is a web application that analyzes legacy codebases to identify code smells, outdated patterns, and technical debt. It provides spooky-themed visualizations of problem areas and generates actionable modernization plans.
 
-[Haunted Refacatorium](https://github.com/beatrix-chan/haunted-refacatorium) is a web app that haunts legacy repos to reveal cursed code and guide their resurrection into modern architectures.
+## ✨ Features
 
-This project is **vibe-coded** using [Kiro](https://kiro.dev/) &mdash; an Agentic AI that allows development from prototype to production, built by Amazon Web Service (AWS) &mdash; for participation in [Kiroween 2025 Hackathon](https://kiroween.devpost.com/). For details how Kiro is used (the write up), please read [kiro-dev.md](kiro-dev.md).
+- 👻 **Detect Ghostly Dependencies**: Identify outdated and deprecated packages
+- 💀 **Find Cursed Files**: Highlight problematic code with severity-based visualization
+- 🗺️ **Generate Resurrection Plans**: Get detailed architecture proposals and migration strategies
+- 📦 **Download Modern Scaffolds**: Start fresh with a modern project structure
+- 🎭 **Toggle Spooky/Professional Mode**: Switch between Halloween theme and professional interface
+- ♿ **Accessibility First**: High contrast mode, dyslexic-friendly fonts, keyboard navigation
 
-<details>
+## 🚀 Quick Start
 
-<summary>Table of Contents</summary>
+### Fastest Way (5 minutes)
 
-- [Introduction](#introduction)
-- [Tech Stack](#tech-stack)
-- [Key Features](#key-features)
-    - [Testing Coverage](#testing-coverage)
+```bash
+# 1. Install dependencies
+npm install
 
-</details>
+# 2. Setup environment
+cp .env.example .env
 
-## Introduction
+# 3. Verify setup
+npm run verify
 
-Haunted Refacatorium is a web app that "haunts" odd or unfashionable tech (e.g., jQuery apps, PHP monoliths, outdated REST APIs, etc.) and guides users through modernizing them into a fresh stack.
+# 4. Start backend (terminal 1)
+npm run dev:backend
 
-This submission is aiming for the category **Resurrection** (dead/obsolete tech &rarr; modern implementation). And bonus submission for **Costume Contest** for the strong spooky theming in the UI and UX.
+# 5. Start frontend (terminal 2)
+npm run dev:frontend
+```
 
-## Tech Stack
+Visit `http://localhost:3000` 🎉
 
-> [!NOTE]
-> These can be viewed in [`design.md`](.kiro/specs/haunted-refactorium/design.md)
+**See the [documentation](docs/) for detailed setup options.**
 
-**IDE**
+### Local Docker Deployment (Offline-Capable)
 
-[![Kiro](https://skills.syvixor.com/api/icons?i=kiro)](https://kiro.dev)
+For privacy-sensitive codebases with local LLM support:
 
-**Core**
+```bash
+# Start all services (includes Ollama for local AI)
+docker-compose up
 
-[![Typescript](https://skills.syvixor.com/api/icons?i=ts)](https://www.typescriptlang.org/) [![Node.js](https://skills.syvixor.com/api/icons?i=nodejs)](https://nodejs.org/en/) 
+# Pull the CodeLlama model (first time only)
+docker exec -it haunted-ollama ollama pull codellama
+```
 
-**Backend**
+Visit `http://localhost:3000`
 
-[![Express.js](https://skills.syvixor.com/api/icons?i=expressjs)](https://expressjs.com/) [![WebSocket](https://skills.syvixor.com/api/icons?i=websocket)](https://websocket.org)
+**Local deployment includes:**
+- Ollama for offline LLM inference
+- Larger, more accurate AI models (CodeLlama, Llama 3)
+- Complete privacy - no internet required after setup
+- Redis for caching
 
-**Frontend**
+### Online Deployment (Railway)
 
-[![React](https://skills.syvixor.com/api/icons?i=react)](https://react.dev/) [![D3.js](https://skills.syvixor.com/api/icons?i=d3js)](https://d3js.org) [![Tailwind CSS](https://skills.syvixor.com/api/icons?i=tailwind)](https://tailwindcss.com/) [![react-i18next](https://skills.syvixor.com/api/icons?i=i18next)](https://react.i18next.com/)
+For quick demos and public use:
 
-**Documentation**
+1. Push to GitHub
+2. Connect to Railway
+3. Railway auto-deploys (no Docker needed)
+4. Add Redis add-on (optional)
 
-[![VitePress](https://skills.syvixor.com/api/icons?i=vitepress,markdown)](https://vitepress.dev/) [![Swagger](https://skills.syvixor.com/api/icons?i=swagger)](https://swagger.io) [![OpenAPI Initiative](https://skills.syvixor.com/api/icons?i=openapi)](https://www.openapis.org/)
+**Online deployment uses:**
+- Free/public LLM APIs (Hugging Face Inference API)
+- No API keys required
+- Optimized for speed with smaller models
+- Supports large file uploads and WebSockets
 
-**Analysis Tools**
+## 📦 Supported Archive Formats
 
-[![Tree-sitter](https://skills.syvixor.com/api/icons?i=treesitter)](https://tree-sitter.github.io/tree-sitter/) [![Eslint](https://skills.syvixor.com/api/icons?i=eslint)](https://eslint.org/) [![typescript-eslint](https://skills.syvixor.com/api/icons?i=tslint)](https://typescript-eslint.io/)
-
-**Storage and Caching**
-
-- **File system** for temporary codebase storage.
-- **Redis** for caching analysis results
-
-**AI Integration**
-
-[![Ollama](https://skills.syvixor.com/api/icons?i=ollama)](https://ollama.com)
-
-**Translations**
-
-[![i18next](https://skills.syvixor.com/api/icons?i=i18next)](https://www.i18next.com/)
-
-**Testing**
-
-- [Jest](https://jestjs.org) for unit testing
-- [fast-check](https://fast-check.dev/) for property-based testing
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for component tests
-
-**Deployments**
-
-[![Railway](https://skills.syvixor.com/api/icons?i=railway)](https://railway.com) [![Docker](https://skills.syvixor.com/api/icons?i=docker)](https://www.docker.com) [![Nginx](https://skills.syvixor.com/api/icons?i=nginx)](https://nginx.org/en/)
-
-**Supported Archive Formats**
-
-- [`.7z`](https://www.7-zip.org/)
+- `.7z`
 - `.zip`
-- `.tar`
-- `.tar.gz`
-- `.tar.bz2`
-- `.tar.xz`
+- `.tar`, `.tar.gz`, `.tgz`
+- `.tar.bz2`, `.tar.xz`
 
-## Key Features
+## 🛠️ Technology Stack
 
-**Input**
+**Frontend:**
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- D3.js for visualizations
 
-- Repository URL or archive upload
-- Auto-detect tech stack
-- Support multiple languages
+**Backend:**
+- Node.js + Express
+- TypeScript
+- Tree-sitter for code parsing
+- WebSocket for real-time updates
 
-**Analysis**
+**AI Integration:**
+- **Local/Offline**: Ollama (CodeLlama, Llama 3)
+- **Online**: Hugging Face Inference API (free tier)
 
-- Code smells & anti-patterns
-- Outdated dependencies (ghostly dependencies 👻)
-- Deprecated tools (TSLint, Bower, etc.)
-- Complexity metrics
-- Hotspot identification (cursed files 💀)
+**Storage:**
+- Redis for caching
+- File system for temporary storage
 
-**Visualization**
+## 🎨 Theme Customization
 
-- Interactive codebase map
-- Dependency graphs
-- Severity-based styling (cursed/haunted/spooky)
-- Halloween-themed UI
+Toggle between modes in the header:
 
-**Output**
+- **🎃 Spooky Mode**: Halloween-themed interface with cursed files and ghostly dependencies
+- **💼 Professional Mode**: Clean, business-appropriate interface
+- **🔆 High Contrast**: Better visibility for accessibility
+- **Aa Font Toggle**: Switch between JetBrains Mono and OpenDyslexic
 
-- Modern architecture proposal
-- Prioritized refactoring steps
-- Migration guide with phases
-- Modern project scaffold
-- Exportable reports (PDF/HTML/Markdown/ZIP)
+## 📚 API Documentation
 
-**Deployment Options**
+Interactive API docs available at `http://localhost:3001/api-docs` when running the backend.
 
-- **Local Docker**: Full offline capabilioty, privacy-focused, includes Ollama + large models
-- **Online Hosted**: Lighter deployment, smaller models, faster but slightly less accurate
+## 🧪 Testing
 
-**Internationalization and Localization**
+```bash
+# Run all tests
+npm test
 
-- Browser language auto-detection
-- Language selector component
-- Persistent language preferences
-- English default + extensible
+# Run property-based tests
+npm run test:properties
 
-### Testing Coverage
+# Run with coverage
+npm test -- --coverage
+```
 
-- **18 Correctness Properties** (property-based tests)#
-- unit tests for all services
-- Integration tests for API endpoints
-- Component tests for React UI
-- End-to-end workflow testing
+## 🔒 Security Best Practices
 
+- Input validation on all uploads
+- File size limits enforced
+- Secure file extraction (prevents path traversal)
+- CORS and Helmet.js configured
+- No sensitive data in logs
+
+## ♿ Accessibility
+
+Haunted Refactorium prioritizes accessibility:
+
+- ✓ Keyboard navigation throughout
+- ✓ ARIA labels and semantic HTML
+- ✓ Screen reader compatible
+- ✓ High contrast mode
+- ✓ Dyslexic-friendly font option
+- ✓ Adjustable text sizes
+- ✓ Color-blind friendly palettes
+
+## 📖 Documentation
+
+- [Product Overview](.kiro/steering/product.md)
+- [Technology Stack](.kiro/steering/tech.md)
+- [Project Structure](.kiro/steering/structure.md)
+- [Modernization Strategy](.kiro/steering/modernization-strategy.md)
+- [Tone and Voice Guidelines](.kiro/steering/tone-and-voice.md)
+
+## 🤝 Contributing
+
+Contributions welcome! Please follow the existing code style and add tests for new features.
+
+## 📄 License
+
+MIT License - see LICENSE file for details
+
+## 🎃 Happy Haunting!
+
+Transform your legacy code from cursed to blessed. Upload your codebase and let the spirits guide your modernization journey.
