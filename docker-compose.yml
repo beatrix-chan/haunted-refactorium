@@ -1,0 +1,62 @@
+# Local deployment with Ollama for offline LLM support
+version: '3.8'
+
+services:
+  # Ollama for local LLM inference
+  ollama:
+    image: ollama/ollama:latest
+    container_name: haunted-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    restart: unless-stopped
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: haunted-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: haunted-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DEPLOYMENT_MODE=local
+      - REDIS_URL=redis://redis:6379
+      - OLLAMA_URL=http://ollama:11434
+      - OLLAMA_MODEL=codellama
+    volumes:
+      - ./uploads:/app/uploads
+    depends_on:
+      - redis
+      - ollama
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: haunted-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  redis_data:
