@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "outDir": "./dist"
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "./dist",
+    "noImplicitAny": false
   },
   "include": ["src/backend/**/*", "src/shared/**/*"],
   "exclude": ["node_modules", "dist"]
