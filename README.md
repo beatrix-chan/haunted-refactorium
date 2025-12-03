@@ -109,7 +109,7 @@ Toggle between modes in the header:
 
 ## 📚 API Documentation
 
-Interactive API docs available at [`http://localhost:3001/api-docs` when running the backend.
+Interactive API docs available at [`http://localhost:3001/api-docs`](http://localhost:3001/api-docs) when running the backend.
 
 ## 🧪 Testing
 
