@@ -5,8 +5,8 @@
  * Checks if all required dependencies and services are available
  */
 
-const fs = require('fs');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import { execSync } from 'child_process';
 
 const colors = {
   green: '\x1b[32m',
@@ -43,10 +43,8 @@ function checkFile(filePath, name) {
 
 function checkPort(port) {
   try {
-    const { execSync } = require('child_process');
-    const command = process.platform === 'win32'
-      ? `netstat -ano | findstr :${port}`
-      : `lsof -i :${port}`;
+    const command =
+      process.platform === 'win32' ? `netstat -ano | findstr :${port}` : `lsof -i :${port}`;
     execSync(command, { stdio: 'ignore' });
     return true;
   } catch {
@@ -119,7 +117,7 @@ async function main() {
   // Summary
   log('\n' + '='.repeat(50), 'blue');
   if (allGood) {
-    log('✓ Setup verification complete! You\'re ready to go.', 'green');
+    log("✓ Setup verification complete! You're ready to go.", 'green');
     log('\nNext steps:', 'blue');
     log('  1. npm run dev:backend  (in terminal 1)', 'reset');
     log('  2. npm run dev:frontend (in terminal 2)', 'reset');
