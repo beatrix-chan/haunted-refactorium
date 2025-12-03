@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Git
+.git/
+.gitignore
+
+# Environment files (secrets!)
+.env
+.env.*
+!.env.example
+
+# IDE and editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Kiro
+.kiro/
+
+# User uploads and temp files
+uploads/
+
+# Test files
+tests/
+coverage/
+*.spec.ts
+*.test.ts
+jest.config.cjs
+
+# Documentation (not needed in runtime images)
+docs/
+*.md
+LICENSE
+
+# Build artifacts
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files (no need to copy these into the image)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
