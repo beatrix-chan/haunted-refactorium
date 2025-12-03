@@ -245,7 +245,7 @@ Follow the **Strangler Fig pattern** for incremental migration:
 
     // Generate specific migration steps based on actual stacks
     if (current.includes('jQuery') && proposed.includes('React')) {
-      phases.push(`### Phase 1: jQuery to React Migration
+      phases.push(`### Phase: jQuery to React Migration
 1. Set up React alongside existing jQuery code
 2. Create React components for new features
 3. Gradually wrap jQuery widgets in React components
