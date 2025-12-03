@@ -23,7 +23,7 @@ docker exec -it haunted-ollama ollama pull codellama
 
 :::
 
-Visit http://localhost:3000
+Visit [http://localhost:3000](http://localhost:3000)
 
 ## Step 2: Choose Input Method
 
@@ -31,11 +31,14 @@ You have two options for providing code to analyze:
 
 ### Option A: GitHub Repository URL
 
-1. Click the **🔗 GitHub URL** tab
+1. Click the **🔗 URL** tab
 2. Enter a repository URL:
    ```
-   https://github.com/jquery/jquery
+   https://github.com/username/repo-name
    ```
+   ::: details Repository URL
+   This part is built using the [`simple-git`](https://www.npmjs.com/package/simple-git) package, therefore it works with both repository URL (e.g. `https://github.com/jquery/jquery`) and HTTPS clone web URL (e.g. `https://github.com/jquery/jquery-ui.git`). This ensures support for private repositories as well!
+   :::
 3. Click **🔮 Begin the Haunting**
 
 ### Option B: Upload Archive
@@ -53,24 +56,31 @@ For testing, try analyzing a legacy jQuery project or an old PHP application to 
 After a few seconds, you'll see:
 
 ### Metrics Overview
+
 - Total files and lines of code
 - Code smells detected
 - Technical debt score
 
 ### Ghostly Dependencies 👻
+
 Deprecated packages that need updating:
+
 - jQuery 2.x → Modern framework
 - Bower → npm/yarn
 - TSLint → ESLint
 
 ### Cursed Files 💀
+
 Files with the most issues:
+
 - High complexity
 - Multiple code smells
 - Severity ratings (Cursed/Haunted/Spooky)
 
 ### Code Smells 🕷️
+
 Specific issues with recommendations:
+
 - `var` usage → Use `const`/`let`
 - Callback hell → Use `async`/`await`
 - Long functions → Break into smaller pieces
@@ -80,24 +90,30 @@ Specific issues with recommendations:
 Click **⚡ Generate Resurrection Plan** to get:
 
 ### Stack Comparison
+
 - **Current**: jQuery, PHP, MySQL
 - **Proposed**: React, TypeScript, Node.js, PostgreSQL
 
 ### Migration Strategy
+
 AI-generated approach for incremental migration
 
 ### Implementation Phases
+
 Detailed tasks broken down by priority:
+
 1. **Setup & Planning** (High priority)
 2. **Core Migration** (High priority)
 3. **Refinement** (Medium priority)
 
 ### Effort Estimation
+
 Time estimate based on codebase size and complexity
 
 ## Step 5: Download Scaffold
 
 Click **📦 Download Scaffold** to get:
+
 - Modern project structure
 - Pre-configured `package.json`
 - TypeScript configuration
@@ -109,6 +125,7 @@ Click **📦 Download Scaffold** to get:
 ### Toggle Theme Mode
 
 In the header, click:
+
 - **🎃 Spooky** ↔ **💼 Professional** - Switch between Halloween and business themes
 - **🔆 High Contrast** - Increase visibility
 - **Aa Font** - Switch between JetBrains Mono and OpenDyslexic
@@ -135,6 +152,7 @@ zip -r jquery-ui.zip .
 ```
 
 **Expected Results:**
+
 - Detects jQuery as ghostly dependency
 - Identifies deprecated patterns
 - Recommends migration to React/Vue
@@ -143,16 +161,19 @@ zip -r jquery-ui.zip .
 ## Tips for Best Results
 
 ### For Accurate Analysis
+
 - Upload complete projects (not just snippets)
 - Include `package.json` for dependency detection
 - Larger codebases take longer but provide better insights
 
 ### For GitHub Repos
+
 - Public repositories work out of the box
 - Private repos require authentication (coming soon)
 - Large repos may take 1-2 minutes to clone
 
 ### For Archive Files
+
 - Keep archives under 100MB for best performance
 - Supported formats: `.zip`, `.tar`, `.tar.gz`, `.7z`
 - Extract nested archives before uploading
@@ -167,16 +188,19 @@ zip -r jquery-ui.zip .
 ## Troubleshooting
 
 ### Analysis Takes Too Long
+
 - Large codebases (>1000 files) may take 2-3 minutes
 - Check browser console for errors
 - Try a smaller test project first
 
 ### GitHub Clone Fails
+
 - Verify the URL is correct
 - Ensure repository is public
 - Check internet connection
 
 ### Upload Fails
+
 - Check file size (max 100MB)
 - Verify archive format is supported
 - Try extracting and re-zipping

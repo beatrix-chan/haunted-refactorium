@@ -5,11 +5,13 @@ This guide will help you set up Haunted Refactorium for development or deploymen
 ## Prerequisites
 
 ### Required
+
 - **Node.js 18+** - [Download](https://nodejs.org/)
 - **npm** - Comes with Node.js
 - **Git** - For cloning repositories
 
 ### Optional (for Docker deployment)
+
 - **Docker** - [Download](https://www.docker.com/products/docker-desktop)
 - **Docker Compose** - Usually included with Docker Desktop
 - **8GB+ RAM** - For running Ollama with larger models
@@ -19,9 +21,12 @@ This guide will help you set up Haunted Refactorium for development or deploymen
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/haunted-refactorium.git
+git clone https://github.com/<username>/haunted-refactorium.git
 cd haunted-refactorium
 ```
+
+> [!NOTE]
+> Remember to replace `<username>` with your username if you have forked the repository.
 
 ### 2. Install Dependencies
 
@@ -96,6 +101,7 @@ docker-compose down
 For cloud deployment with auto-scaling:
 
 1. **Push to GitHub**:
+
 ```bash
 git init
 git add .
@@ -164,12 +170,14 @@ npm run verify            # Verify setup
 If ports 3000 or 3001 are in use:
 
 **Windows:**
+
 ```bash
 netstat -ano | findstr :3000
 taskkill /PID <PID> /F
 ```
 
 **Mac/Linux:**
+
 ```bash
 lsof -ti:3000 | xargs kill -9
 ```
@@ -177,9 +185,11 @@ lsof -ti:3000 | xargs kill -9
 ### Docker Out of Memory
 
 Increase Docker memory in Docker Desktop settings:
+
 - Settings → Resources → Memory → 8GB+
 
 Or use a smaller model:
+
 ```bash
 docker exec -it haunted-ollama ollama pull codellama:7b
 ```
@@ -187,6 +197,7 @@ docker exec -it haunted-ollama ollama pull codellama:7b
 ### npm install Fails
 
 Clear cache and reinstall:
+
 ```bash
 rm -rf node_modules package-lock.json
 npm cache clean --force
@@ -196,12 +207,14 @@ npm install
 ### Backend Won't Start
 
 Make sure you've built it first:
+
 ```bash
 npm run build:backend
 npm start
 ```
 
 Or use dev mode (auto-compiles):
+
 ```bash
 npm run dev:backend
 ```

@@ -19,11 +19,13 @@ export default defineConfig({
             { text: 'What is Haunted Refactorium?', link: '/guide/what-is-haunted-refactorium' },
             { text: 'Getting Started', link: '/guide/getting-started' },
             { text: 'Quick Start', link: '/guide/quick-start' },
+            { text: 'Project Summary', link: '/guide/project-summary' },
           ],
         },
         {
           text: 'Features',
           items: [
+            { text: 'All Features', link: '/guide/features' },
             { text: 'Code Analysis', link: '/guide/code-analysis' },
             { text: 'Architecture Proposals', link: '/guide/architecture-proposals' },
             { text: 'Theme Customization', link: '/guide/theme-customization' },
@@ -44,10 +46,11 @@ export default defineConfig({
           text: 'API Reference',
           items: [
             { text: 'Overview', link: '/api/overview' },
-            { text: 'Upload Endpoint', link: '/api/upload' },
             { text: 'Clone Endpoint', link: '/api/clone' },
+            { text: 'Upload Endpoint', link: '/api/upload' },
             { text: 'Analysis Endpoint', link: '/api/analysis' },
             { text: 'Proposal Endpoint', link: '/api/proposal' },
+            { text: 'Scaffold Endpoint', link: '/api/scaffold' },
           ],
         },
       ],

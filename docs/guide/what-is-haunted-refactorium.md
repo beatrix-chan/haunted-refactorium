@@ -15,32 +15,41 @@ Transform legacy code into modern architectures by:
 ## Target Users
 
 ### Developers
+
 Working with legacy codebases who need guidance on modernization priorities and refactoring strategies.
 
 ### Consultants
+
 Assessing client codebases and creating modernization proposals with professional or spooky presentations.
 
 ### Teams
+
 Planning technical debt reduction and coordinating refactoring efforts across multiple developers.
 
 ### Enterprises
+
 Auditing legacy systems before major modernization initiatives with privacy-focused local deployment.
 
 ## Key Differentiators
 
 ### 🎃 Halloween-Themed UX
+
 Spooky visualizations make code analysis engaging with cursed/haunted/spooky severity levels. Toggle to professional mode for business contexts.
 
 ### 🔒 Offline-Capable
+
 Full Docker deployment with local LLM support (Ollama) for privacy-sensitive codebases. No internet required after initial setup.
 
 ### 📊 Comprehensive Output
+
 Not just analysis, but architecture proposals, scaffolds, and migration guides. Everything you need to start modernizing.
 
 ### 🌍 Multi-Language Support
+
 Internationalization built-in from the start. Easy to add new languages.
 
 ### ♿ Accessibility First
+
 High contrast mode, dyslexic-friendly fonts, keyboard navigation, and screen reader support are core features, not afterthoughts.
 
 ## How It Works
@@ -54,12 +63,14 @@ High contrast mode, dyslexic-friendly fonts, keyboard navigation, and screen rea
 ## Deployment Models
 
 ### Local Docker Deployment
+
 - **Offline-capable** with Ollama for local LLM inference
 - **Larger, more accurate models** (CodeLlama, Llama 3)
 - **Complete privacy** - no external API calls
 - **Ideal for**: Enterprise, sensitive codebases, privacy-focused users
 
 ### Online Hosted Deployment
+
 - **Railway deployment** with free/public LLM APIs
 - **No API keys required** - uses Hugging Face free tier
 - **Faster setup** and auto-deploy from GitHub
