@@ -1,12 +1,35 @@
 # 🎃 Haunted Refactorium
 
-![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) [![License](https://img.shields.io/github/license/beatrix-chan/haunted-refactorium?style=for-the-badge)](LICENSE)
+![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) [![License](https://img.shields.io/github/license/beatrix-chan/haunted-refactorium?style=for-the-badge&color=ffa500)](LICENSE)
 
 ![Kiroween](Kiroween.png)
 
 **Where legacy code goes to be resurrected**
 
 Haunted Refactorium is a web application that analyzes legacy codebases to identify code smells, outdated patterns, and technical debt. It provides spooky-themed visualizations of problem areas and generates actionable modernization plans.
+
+<details>
+
+<summary>Table of Contents</summary>
+
+- [✨ Features](#-features)
+- [🚀 Quick Start](#-quick-start)
+    - [Fastest Way (5 minutes)](#fastest-way-5-minutes)
+    - [Local Docker Deployment (Offline-Capable)](#local-docker-deployment-offline-capable)
+    - [Online Deployment (Railway)](#online-deployment-railway)
+- [📦 Supported Archive Formats](#-supported-archive-formats)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [🎨 Theme Customization](#-theme-customization)
+- [📚 API Documentation](#-api-documentation)
+- [🧪 Testing](#-testing)
+- [🔒 Security Best Practices](#-security-best-practices)
+- [♿ Accessibility](#-accessibility)
+- [📖 Documentation](#-documentation)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [🎃 Happy Haunting!](#-happy-haunting)
+
+</details>
 
 ## ✨ Features
 
