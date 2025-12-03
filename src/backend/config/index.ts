@@ -6,7 +6,7 @@ dotenv.config();
 export const config = {
   port: parseInt(process.env.PORT || '3001', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
-  deploymentMode: (process.env.DEPLOYMENT_MODE || 'local') as DeploymentMode,
+  deploymentMode: (process.env.DEPLOYMENT_MODE || 'online') as DeploymentMode,
 
   redis: {
     url: process.env.REDIS_URL || 'redis://localhost:6379',
@@ -18,7 +18,7 @@ export const config = {
   },
 
   huggingface: {
-    apiUrl: process.env.HUGGINGFACE_API_URL || 'https://api-inference.huggingface.co/models',
+    apiUrl: process.env.HUGGINGFACE_API_URL || 'https://api-inference.huggingface.co',
     model: process.env.HUGGINGFACE_MODEL || 'bigcode/starcoder',
   },
 

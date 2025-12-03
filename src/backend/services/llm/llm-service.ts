@@ -46,40 +46,20 @@ class OllamaLLMService implements LLMService {
 
 class OnlineLLMService implements LLMService {
   async generateArchitectureProposal(analysis: string): Promise<string> {
-    try {
-      const response = await axios.post(
-        `${config.huggingface.apiUrl}/${config.huggingface.model}`,
-        {
-          inputs: `Based on this code analysis, propose a modern architecture:\n\n${analysis.substring(0, 1000)}\n\nArchitecture proposal:`,
-          parameters: { max_new_tokens: 500, temperature: 0.7 },
-        },
-        { timeout: 30000 }
-      );
-      return response.data[0]?.generated_text || this.getFallbackProposal();
-    } catch (error) {
-      console.error('Online LLM error:', error);
-      return this.getFallbackProposal();
-    }
+    // Note: Hugging Face Inference API is deprecated
+    // For production, consider using:
+    // - OpenRouter (https://openrouter.ai) - free tier available
+    // - Together AI (https://together.ai) - free tier available
+    // - Or deploy with Docker + Ollama for local inference
+    
+    console.log('ℹ️ Using template-based proposal (Hugging Face API deprecated)');
+    console.log('💡 For AI-generated proposals, use Docker deployment with Ollama');
+    return this.getFallbackProposal();
   }
 
   async generateMigrationGuide(currentStack: string[], proposedStack: string[]): Promise<string> {
-    try {
-      const response = await axios.post(
-        `${config.huggingface.apiUrl}/${config.huggingface.model}`,
-        {
-          inputs: `Migration guide from ${currentStack.join(', ')} to ${proposedStack.join(', ')}:\n\n`,
-          parameters: { max_new_tokens: 500, temperature: 0.7 },
-        },
-        { timeout: 30000 }
-      );
-      return (
-        response.data[0]?.generated_text ||
-        this.getFallbackMigrationGuide(currentStack, proposedStack)
-      );
-    } catch (error) {
-      console.error('Online LLM error:', error);
-      return this.getFallbackMigrationGuide(currentStack, proposedStack);
-    }
+    // Using template-based guide for now
+    return this.getFallbackMigrationGuide(currentStack, proposedStack);
   }
 
   private getFallbackProposal(): string {
@@ -87,7 +67,24 @@ class OnlineLLMService implements LLMService {
   }
 
   private getFallbackMigrationGuide(current: string[], proposed: string[]): string {
-    return `# Migration Guide\n\n## Current: ${current.join(', ')}\n## Target: ${proposed.join(', ')}\n\n1. Set up new project structure\n2. Migrate dependencies\n3. Refactor code incrementally\n4. Add tests\n5. Deploy gradually`;
+    return `> **Approach:** Incremental Migration (Strangler Fig Pattern)
+> 
+> This strategy minimizes risk by gradually replacing the old system with the new one, allowing you to test each component before fully committing.
+
+**Why This Approach?**
+- Lower risk with isolated, reversible changes
+- Keep shipping features during migration
+- Gradual team learning of new technologies
+- Easy rollback if issues arise
+
+**Key Principles:**
+1. Start small with non-critical features
+2. Test thoroughly at each step
+3. Monitor performance and errors closely
+4. Document everything for team alignment
+5. Iterate quickly with short feedback loops
+
+**Next Steps:** Review the implementation phases below for detailed tasks and timelines.`;
   }
 }
 

@@ -19,6 +19,20 @@ export class AnalysisService {
     const cursedFiles = await this.identifyCursedFiles(codebasePath, codeSmells);
     const metrics = await this.calculateMetrics(codebasePath, codeSmells);
 
+    // Detect primary languages from file extensions
+    const languages = await this.detectLanguages(codebasePath);
+
+    // Add detected languages as technologies
+    for (const [lang, count] of Object.entries(languages)) {
+      if (count > 0 && !technologies.some(t => t.name.toLowerCase() === lang.toLowerCase())) {
+        technologies.push({
+          name: lang,
+          deprecated: false,
+          severity: 'clean',
+        });
+      }
+    }
+
     return {
       id: `analysis-${Date.now()}`,
       codebaseId,
@@ -32,6 +46,42 @@ export class AnalysisService {
       createdAt: new Date(),
       completedAt: new Date(),
     };
+  }
+
+  private async detectLanguages(codebasePath: string): Promise<Record<string, number>> {
+    const languages: Record<string, number> = {};
+    const files = await this.getCodeFiles(codebasePath);
+
+    for (const file of files) {
+      const ext = path.extname(file).toLowerCase();
+      const lang = this.getLanguageFromExtension(ext);
+      if (lang !== 'Other') {
+        languages[lang] = (languages[lang] || 0) + 1;
+      }
+    }
+
+    return languages;
+  }
+
+  private getLanguageFromExtension(ext: string): string {
+    const map: Record<string, string> = {
+      '.js': 'JavaScript',
+      '.jsx': 'JavaScript',
+      '.ts': 'TypeScript',
+      '.tsx': 'TypeScript',
+      '.py': 'Python',
+      '.php': 'PHP',
+      '.java': 'Java',
+      '.rb': 'Ruby',
+      '.go': 'Go',
+      '.rs': 'Rust',
+      '.c': 'C',
+      '.cpp': 'C++',
+      '.cs': 'C#',
+      '.swift': 'Swift',
+      '.kt': 'Kotlin',
+    };
+    return map[ext] || 'Other';
   }
 
   private async detectCodeSmells(codebasePath: string): Promise<CodeSmell[]> {
@@ -170,9 +220,18 @@ export class AnalysisService {
       const entries = await fs.readdir(dir, { withFileTypes: true });
       for (const entry of entries) {
         const fullPath = path.join(dir, entry.name);
-        if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'node_modules') {
+        if (
+          entry.isDirectory() &&
+          !entry.name.startsWith('.') &&
+          entry.name !== 'node_modules' &&
+          entry.name !== '__pycache__' &&
+          entry.name !== 'vendor'
+        ) {
           files.push(...(await this.getCodeFiles(fullPath)));
-        } else if (entry.isFile() && /\.(js|jsx|ts|tsx|py|php|java|rb)$/.test(entry.name)) {
+        } else if (
+          entry.isFile() &&
+          /\.(js|jsx|ts|tsx|py|php|java|rb|go|rs|swift|kt|cs|hs|zig|c|cpp|h|hpp)$/.test(entry.name)
+        ) {
           files.push(fullPath);
         }
       }

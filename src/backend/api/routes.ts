@@ -40,7 +40,7 @@ const proposals = new Map();
 router.post('/clone', async (req, res) => {
   try {
     let { repoUrl } = req.body;
-    
+
     if (!repoUrl) {
       return res.status(400).json({ error: 'Repository URL is required' });
     }
@@ -48,7 +48,9 @@ router.post('/clone', async (req, res) => {
     // Validate and normalize GitHub URL
     const githubUrlPattern = /^https?:\/\/(github\.com|gitlab\.com|bitbucket\.org)\/.+/;
     if (!githubUrlPattern.test(repoUrl)) {
-      return res.status(400).json({ error: 'Invalid repository URL. Must be from GitHub, GitLab, or Bitbucket.' });
+      return res
+        .status(400)
+        .json({ error: 'Invalid repository URL. Must be from GitHub, GitLab, or Bitbucket.' });
     }
 
     // Add .git if not present
@@ -63,15 +65,49 @@ router.post('/clone', async (req, res) => {
     await ingestionService.cloneRepository(repoUrl, extractPath);
     const metadata = await ingestionService.analyzeCodebase(extractPath);
 
-    // Start analysis asynchronously
-    analysisService.analyzeCodebase(codebaseId, extractPath).then(result => {
-      analyses.set(result.id, result);
-    }).catch(error => {
-      console.error('Analysis error:', error);
+    // Create analysis ID upfront
+    const analysisId = `analysis-${codebaseId}`;
+
+    // Create pending analysis entry
+    analyses.set(analysisId, {
+      id: analysisId,
+      codebaseId,
+      status: 'analyzing',
+      progress: 0,
+      technologies: [],
+      codeSmells: [],
+      cursedFiles: [],
+      ghostlyDependencies: [],
+      metrics: {
+        totalFiles: 0,
+        totalLines: 0,
+        avgComplexity: 0,
+        technicalDebtScore: 0,
+      },
+      createdAt: new Date(),
     });
+
+    // Start analysis asynchronously
+    analysisService
+      .analyzeCodebase(codebaseId, extractPath)
+      .then(result => {
+        console.log('✅ Analysis complete for', codebaseId);
+        console.log('📊 Technologies detected:', result.technologies.map(t => t.name).join(', '));
+        console.log('📈 Technical debt score:', result.metrics.technicalDebtScore);
+        analyses.set(analysisId, { ...result, id: analysisId });
+      })
+      .catch(error => {
+        console.error('❌ Analysis error:', error);
+        analyses.set(analysisId, {
+          ...analyses.get(analysisId),
+          status: 'failed',
+          error: error.message,
+        });
+      });
 
     res.json({
       codebaseId,
+      analysisId,
       message: 'Repository cloned, analysis started',
       metadata: { ...metadata, id: codebaseId, uploadedAt: new Date() },
     });
@@ -108,7 +144,7 @@ router.post('/upload', upload.single('archive'), async (req, res) => {
     }
 
     const codebaseId = uuidv4();
-    
+
     // For demo: create mock analysis result
     // In production, you'd extract the archive and analyze it
     const mockAnalysis = {

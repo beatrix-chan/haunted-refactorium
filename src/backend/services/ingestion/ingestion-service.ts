@@ -11,11 +11,11 @@ export class IngestionService {
 
   async cloneRepository(repoUrl: string, extractPath: string): Promise<void> {
     await fs.mkdir(extractPath, { recursive: true });
-    
+
     // Use simple-git to clone the repository
     const simpleGit = (await import('simple-git')).default;
     const git = simpleGit();
-    
+
     try {
       await git.clone(repoUrl, extractPath, ['--depth', '1']);
       console.log(`Successfully cloned repository: ${repoUrl}`);
@@ -91,7 +91,27 @@ export class IngestionService {
       '.rs': 'Rust',
       '.c': 'C',
       '.cpp': 'C++',
+      '.cc': 'C++',
+      '.cxx': 'C++',
+      '.h': 'C/C++',
+      '.hpp': 'C++',
       '.cs': 'C#',
+      '.swift': 'Swift',
+      '.kt': 'Kotlin',
+      '.kts': 'Kotlin',
+      '.hs': 'Haskell',
+      '.zig': 'Zig',
+      '.m': 'Objective-C',
+      '.mm': 'Objective-C++',
+      '.scala': 'Scala',
+      '.clj': 'Clojure',
+      '.ex': 'Elixir',
+      '.exs': 'Elixir',
+      '.erl': 'Erlang',
+      '.dart': 'Dart',
+      '.lua': 'Lua',
+      '.r': 'R',
+      '.jl': 'Julia',
     };
     return map[ext] || 'Other';
   }
