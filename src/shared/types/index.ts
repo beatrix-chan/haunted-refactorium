@@ -57,10 +57,16 @@ export interface CodeMetrics {
   technicalDebtScore: number;
 }
 
+export interface StackItem {
+  name: string;
+  version?: string;
+  issue?: string;
+}
+
 export interface ArchitectureProposal {
   id: string;
   analysisId: string;
-  currentStack: string[];
+  currentStack: StackItem[];
   proposedStack: string[];
   migrationStrategy: string;
   phases: MigrationPhase[];
