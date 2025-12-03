@@ -1,8 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "./dist/backend"
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "./dist"
   },
   "include": ["src/backend/**/*", "src/shared/**/*"],
   "exclude": ["node_modules", "dist"]
