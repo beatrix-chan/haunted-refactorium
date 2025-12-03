@@ -14,9 +14,9 @@ Haunted Refactorium is a web application that analyzes legacy codebases to ident
 
 - [✨ Features](#-features)
 - [🚀 Quick Start](#-quick-start)
-    - [Fastest Way (5 minutes)](#fastest-way-5-minutes)
-    - [Local Docker Deployment (Offline-Capable)](#local-docker-deployment-offline-capable)
-    - [Online Deployment (Railway)](#online-deployment-railway)
+  - [Fastest Way (5 minutes)](#fastest-way-5-minutes)
+  - [Local Docker Deployment (Offline-Capable)](#local-docker-deployment-offline-capable)
+  - [Online Deployment (Railway)](#online-deployment-railway)
 - [📦 Supported Archive Formats](#-supported-archive-formats)
 - [🛠️ Technology Stack](#️-technology-stack)
 - [🎨 Theme Customization](#-theme-customization)
@@ -80,6 +80,7 @@ docker exec -it haunted-ollama ollama pull codellama
 Visit [`http://localhost:3000`](http://localhost:3000)
 
 **Local deployment includes:**
+
 - Ollama for offline LLM inference
 - Larger, more accurate AI models (CodeLlama, Llama 3)
 - Complete privacy - no internet required after setup
@@ -102,22 +103,26 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 ## 🛠️ Technology Stack
 
 **Frontend:**
+
 - React + TypeScript
 - Vite
 - Tailwind CSS
 - D3.js for visualizations
 
 **Backend:**
+
 - Node.js + Express
 - TypeScript
 - Tree-sitter for code parsing
 - WebSocket for real-time updates
 
 **AI Integration:**
+
 - **Local**: Ollama (CodeLlama, Llama 3)
 - **Online**: Hugging Face Inference API (free tier)
 
 **Storage:**
+
 - Redis for caching
 - File system for temporary storage
 
