@@ -40,13 +40,20 @@ export default function HomePage() {
       const response = await axios.post('/api/clone', { repoUrl });
 
       // Navigate directly to analysis if available
-      if (response.data.codebaseId) {
+      if (response.data.analysisId) {
         // Poll for analysis completion
         const checkAnalysis = async () => {
           try {
-            const analysisResponse = await axios.get(`/api/analysis/${response.data.codebaseId}`);
-            if (analysisResponse.data) {
+            const analysisResponse = await axios.get(`/api/analysis/${response.data.analysisId}`);
+            if (analysisResponse.data && analysisResponse.data.status === 'complete') {
               navigate(`/analysis/${analysisResponse.data.id}`);
+            } else if (analysisResponse.data && analysisResponse.data.status === 'failed') {
+              setError(
+                theme.spooky
+                  ? 'The spirits encountered an error during analysis.'
+                  : 'Analysis failed. Please try again.'
+              );
+              setUploading(false);
             } else {
               setTimeout(checkAnalysis, 2000);
             }
@@ -127,7 +134,7 @@ export default function HomePage() {
                 : 'bg-haunted-dark text-gray-400 hover:text-white'
             }`}
           >
-            🔗 GitHub URL
+            🔗 URL
           </button>
           <button
             onClick={() => {
@@ -153,13 +160,13 @@ export default function HomePage() {
             <input
               type="text"
               value={repoUrl}
-              onChange={(e) => setRepoUrl(e.target.value)}
+              onChange={e => setRepoUrl(e.target.value)}
               placeholder="https://github.com/username/repo.git"
               className="w-full px-4 py-3 bg-haunted-dark rounded border-2 border-haunted-purple focus:border-haunted-orange outline-none text-white"
               aria-label="GitHub repository URL"
             />
             <p className="text-sm text-gray-400 mt-2">
-              Supports GitHub, GitLab, and Bitbucket repositories
+              Supports repositories that has Git Hosting. <a href="https://git-scm.com/tools/hosting">Click here to check.</a>
             </p>
           </div>
         )}

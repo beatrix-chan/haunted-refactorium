@@ -34,6 +34,10 @@ export default function AnalysisPage() {
     setGeneratingProposal(true);
     try {
       const response = await axios.post('/api/proposal', { analysisId: analysis.id });
+      
+      // Store the proposal in sessionStorage so ProposalPage can access it
+      sessionStorage.setItem(`proposal-${response.data.id}`, JSON.stringify(response.data));
+      
       navigate(`/proposal/${response.data.id}`);
     } catch (error) {
       console.error('Failed to generate proposal:', error);
@@ -187,21 +191,49 @@ export default function AnalysisPage() {
         </div>
       )}
 
-      {/* Generate Proposal Button */}
+      {/* Generate Proposal Button or Success Message */}
       <div className="text-center">
-        <button
-          onClick={generateProposal}
-          disabled={generatingProposal}
-          className="px-8 py-4 bg-haunted-orange text-white font-bold rounded-lg hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition text-lg"
-        >
-          {generatingProposal
-            ? theme.spooky
-              ? '🔮 Conjuring Architecture...'
-              : '⏳ Generating Proposal...'
-            : theme.spooky
-              ? '⚡ Generate Resurrection Plan'
-              : '🏗️ Generate Architecture Proposal'}
-        </button>
+        {analysis.metrics.technicalDebtScore <= 20 ? (
+          <div className="bg-haunted-green bg-opacity-20 border-2 border-haunted-green rounded-lg p-8 max-w-2xl mx-auto">
+            <div className="text-6xl mb-4">{theme.spooky ? '✨🎉✨' : '🎉'}</div>
+            <h3 className="text-3xl font-bold mb-4 text-haunted-green">
+              {theme.spooky ? 'No Spirits Detected!' : 'Excellent Code Quality!'}
+            </h3>
+            <p className="text-xl text-gray-300 mb-4">
+              {theme.spooky
+                ? 'Your codebase is clean and free of curses. The spirits are pleased! 👻'
+                : 'Your codebase is well-maintained with minimal technical debt. Great work!'}
+            </p>
+            <p className="text-gray-400">
+              Technical Debt Score:{' '}
+              <span className="text-haunted-green font-bold">
+                {analysis.metrics.technicalDebtScore}
+              </span>{' '}
+              / 100
+            </p>
+            {analysis.codeSmells.length > 0 && (
+              <p className="text-sm text-gray-400 mt-4">
+                {theme.spooky
+                  ? 'A few minor spirits linger, but nothing to worry about.'
+                  : 'Minor improvements suggested above, but overall quality is excellent.'}
+              </p>
+            )}
+          </div>
+        ) : (
+          <button
+            onClick={generateProposal}
+            disabled={generatingProposal}
+            className="px-8 py-4 bg-haunted-orange text-white font-bold rounded-lg hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition text-lg"
+          >
+            {generatingProposal
+              ? theme.spooky
+                ? '🔮 Conjuring Architecture...'
+                : '⏳ Generating Proposal...'
+              : theme.spooky
+                ? '⚡ Generate Resurrection Plan'
+                : '🏗️ Generate Architecture Proposal'}
+          </button>
+        )}
       </div>
     </div>
   );
