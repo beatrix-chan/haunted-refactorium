@@ -5,17 +5,23 @@ Thanks for your interest in contributing! This guide will help you get started.
 ## 🎯 Development Setup
 
 1. **Fork and clone:**
+
 ```bash
-git clone https://github.com/your-username/haunted-refactorium.git
+git clone https://github.com/<username>/haunted-refactorium.git
 cd haunted-refactorium
 ```
 
+> [!NOTE]
+> Remember to replace `<username>` with your own username.
+
 2. **Install dependencies:**
+
 ```bash
 npm install
 ```
 
 3. **Start development servers:**
+
 ```bash
 # Terminal 1: Backend
 npm run dev:backend
@@ -59,6 +65,7 @@ npm run format
 ```
 
 **Key conventions:**
+
 - Use TypeScript throughout
 - Functional components with hooks (React)
 - Async/await over callbacks
@@ -81,6 +88,7 @@ npm test -- --coverage
 ```
 
 **Test types:**
+
 - Unit tests: `tests/unit/*.spec.ts`
 - Property-based tests: `tests/properties/*.property.spec.ts`
 - Integration tests: `tests/integration/*.spec.ts`
@@ -90,16 +98,19 @@ npm test -- --coverage
 Follow the tone and voice guidelines in `.kiro/steering/tone-and-voice.md`:
 
 **Spooky Mode (default):**
+
 - Use Halloween metaphors: "cursed files", "ghostly dependencies"
 - Keep it fun but functional
 - Technical content stays clear
 
 **Professional Mode:**
+
 - Business-appropriate language
 - Same functionality, different labels
 - "Critical issues" instead of "cursed files"
 
 **Both modes must:**
+
 - Provide clear, actionable information
 - Maintain accessibility
 - Work for screen readers
@@ -116,6 +127,7 @@ All UI changes must maintain accessibility:
 - ✓ Focus indicators
 
 Test with:
+
 - Tab navigation
 - Screen reader (NVDA, JAWS, VoiceOver)
 - High contrast mode
@@ -123,27 +135,32 @@ Test with:
 ## 🔄 Pull Request Process
 
 1. **Create a feature branch:**
+
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
 2. **Make your changes:**
+
 - Write clean, documented code
 - Add tests for new features
 - Update documentation if needed
 
 3. **Test thoroughly:**
+
 ```bash
 npm test
 npm run lint
 ```
 
 4. **Commit with clear messages:**
+
 ```bash
 git commit -m "feat: add dependency graph visualization"
 ```
 
 Use conventional commits:
+
 - `feat:` New feature
 - `fix:` Bug fix
 - `docs:` Documentation
@@ -153,6 +170,7 @@ Use conventional commits:
 - `chore:` Maintenance
 
 5. **Push and create PR:**
+
 ```bash
 git push origin feature/your-feature-name
 ```
@@ -197,6 +215,7 @@ Update docs when you:
 - Update dependencies
 
 Documentation locations:
+
 - `README.md`: Overview and quick start
 - `DEPLOYMENT.md`: Deployment guides
 - `QUICKSTART.md`: Getting started
@@ -206,6 +225,7 @@ Documentation locations:
 ## 🔒 Security
 
 Report security issues privately:
+
 - Don't open public issues for vulnerabilities
 - Email maintainers directly
 - Include detailed reproduction steps
@@ -213,6 +233,7 @@ Report security issues privately:
 ## 🎯 Good First Issues
 
 Look for issues labeled:
+
 - `good first issue`: Great for newcomers
 - `help wanted`: Community contributions welcome
 - `documentation`: Improve docs
@@ -220,6 +241,7 @@ Look for issues labeled:
 ## 📝 Code Review
 
 Expect feedback on:
+
 - Code quality and style
 - Test coverage
 - Documentation
