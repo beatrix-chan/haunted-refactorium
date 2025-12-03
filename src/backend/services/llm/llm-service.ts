@@ -271,7 +271,10 @@ Follow the **Strangler Fig pattern** for incremental migration:
 5. Remove Webpack configuration and dependencies`);
     }
 
-    if (current.includes('callbacks') && proposed.includes('async/await')) {
+    if (
+      (current.includes('Node.js') || current.includes('Express') || current.includes('jQuery')) &&
+      proposed.includes('async/await')
+    ) {
       phases.push(`### Phase: Async Pattern Modernization
 1. Identify callback-heavy modules
 2. Wrap callbacks in Promises where needed
