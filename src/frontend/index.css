@@ -2,6 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
+/* JetBrains Mono NerdFont */
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono NerdFont';
+  src: url('../shared/assets/fonts/JetBrainsMono NerdFont/JetBrainsMonoNerdFontMono-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OpenDyslexic NerdFont */
+@font-face {
+  font-family: 'OpenDyslexic NerdFont';
+  src: url('../shared/assets/fonts/OpenDyslexic NerdFont/OpenDyslexicNerdFont-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic NerdFont';
+  src: url('../shared/assets/fonts/OpenDyslexic NerdFont/OpenDyslexicNerdFont-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic NerdFont';
+  src: url('../shared/assets/fonts/OpenDyslexic NerdFont/OpenDyslexicNerdFont-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic NerdFont';
+  src: url('../shared/assets/fonts/OpenDyslexic NerdFont/OpenDyslexicNerdFont-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --haunted-dark: #1a0b2e;
   --haunted-purple: #4a1a6b;
@@ -12,13 +102,13 @@
 
 body {
   margin: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono NerdFont', 'JetBrains Mono', monospace;
   background-color: var(--haunted-dark);
   color: #e0e0e0;
 }
 
 .font-dyslexic {
-  font-family: 'OpenDyslexic', sans-serif;
+  font-family: 'OpenDyslexic NerdFont', 'OpenDyslexic', sans-serif;
 }
 
 .high-contrast {
