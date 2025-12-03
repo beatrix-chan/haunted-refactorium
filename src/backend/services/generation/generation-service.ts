@@ -1,4 +1,4 @@
-import { ArchitectureProposal, AnalysisResult, MigrationPhase, StackItem } from '../../../shared/types';
+import { ArchitectureProposal, AnalysisResult, MigrationPhase } from '../../../shared/types';
 import { createLLMService } from '../llm/llm-service';
 import {
   getJavaPhases,
