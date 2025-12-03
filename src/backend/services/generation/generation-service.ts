@@ -1,4 +1,9 @@
-import { ArchitectureProposal, AnalysisResult, MigrationPhase, StackItem } from '../../../shared/types';
+import {
+  ArchitectureProposal,
+  AnalysisResult,
+  MigrationPhase,
+  StackItem,
+} from '../../../shared/types';
 import { createLLMService } from '../llm/llm-service';
 import {
   getJavaPhases,
@@ -38,7 +43,9 @@ export class GenerationService {
     };
   }
 
-  private extractCurrentStackWithIssues(analysis: AnalysisResult): Array<{ name: string; version?: string; issue?: string }> {
+  private extractCurrentStackWithIssues(
+    analysis: AnalysisResult
+  ): Array<{ name: string; version?: string; issue?: string }> {
     const stack: Array<{ name: string; version?: string; issue?: string }> = [];
     const seenNames = new Set<string>();
 
@@ -157,16 +164,16 @@ export class GenerationService {
 
   private detectPrimaryLanguage(analysis: AnalysisResult): string[] {
     const languages: string[] = [];
-    
+
     // Check code smells for language hints
-    const hasJSPatterns = analysis.codeSmells.some(s => 
-      s.type === 'deprecated-syntax' || s.type === 'callback-hell'
+    const hasJSPatterns = analysis.codeSmells.some(
+      s => s.type === 'deprecated-syntax' || s.type === 'callback-hell'
     );
-    
+
     if (hasJSPatterns) {
       languages.push('JavaScript');
     }
-    
+
     // Check file extensions from cursed files
     const fileChecks = [
       { pattern: /\.py$/, lang: 'Python' },
@@ -183,28 +190,33 @@ export class GenerationService {
       { pattern: /\.hs$/, lang: 'Haskell' },
       { pattern: /\.zig$/, lang: 'Zig' },
     ];
-    
+
     for (const check of fileChecks) {
       if (analysis.cursedFiles.some(f => check.pattern.test(f.path))) {
         languages.push(check.lang);
       }
     }
-    
+
     return languages;
   }
 
   private proposeModernStack(currentStack: string[]): string[] {
     const stackStr = currentStack.join(' ').toLowerCase();
-    
+
     // Swift projects (iOS/macOS)
     if (stackStr.includes('swift')) {
       return ['Swift 5.10+', 'SwiftUI', 'Combine', 'Swift Package Manager', 'XCTest'];
     }
-    
+
     // Python-based projects
-    if (stackStr.includes('python') || stackStr.includes('django') || stackStr.includes('flask') || stackStr.includes('streamlit')) {
+    if (
+      stackStr.includes('python') ||
+      stackStr.includes('django') ||
+      stackStr.includes('flask') ||
+      stackStr.includes('streamlit')
+    ) {
       const proposed = ['Python 3.12+'];
-      
+
       if (stackStr.includes('streamlit')) {
         proposed.push('Streamlit (latest)', 'Plotly', 'Pandas', 'Poetry');
       } else if (stackStr.includes('django')) {
@@ -214,55 +226,60 @@ export class GenerationService {
       } else {
         proposed.push('FastAPI', 'Pydantic', 'PostgreSQL', 'Poetry');
       }
-      
+
       return proposed;
     }
-    
+
     // Swift projects (check before Java since it might contain 'java' in package names)
     if (stackStr.includes('swift')) {
       return ['Swift 5.10+', 'SwiftUI', 'Combine', 'Swift Package Manager', 'XCTest'];
     }
-    
-    // Java projects
-    if (stackStr.includes('java')) {
+
+    // Java projects (check for actual Java, not JavaScript)
+    if (
+      stackStr.includes('java ') ||
+      stackStr.includes('spring') ||
+      stackStr.includes('maven') ||
+      stackStr.includes('gradle')
+    ) {
       return ['Java 21 LTS', 'Spring Boot 3.x', 'Maven/Gradle', 'PostgreSQL', 'JUnit 5'];
     }
-    
+
     // Go projects
     if (stackStr.includes('go') || stackStr.includes('golang')) {
       return ['Go 1.22+', 'Gin or Echo', 'GORM', 'PostgreSQL', 'Testify'];
     }
-    
+
     // Rust projects
     if (stackStr.includes('rust')) {
       return ['Rust (latest stable)', 'Actix-web or Axum', 'Diesel or SQLx', 'PostgreSQL'];
     }
-    
+
     // Ruby projects
     if (stackStr.includes('ruby') || stackStr.includes('rails')) {
       return ['Ruby 3.3+', 'Rails 7.x', 'PostgreSQL', 'RSpec', 'Bundler'];
     }
-    
+
     // C# projects
     if (stackStr.includes('c#') || stackStr.includes('csharp') || stackStr.includes('.net')) {
       return ['.NET 8', 'ASP.NET Core', 'Entity Framework Core', 'PostgreSQL', 'xUnit'];
     }
-    
+
     // Kotlin projects
     if (stackStr.includes('kotlin')) {
       return ['Kotlin 1.9+', 'Ktor or Spring Boot', 'Exposed or Room', 'PostgreSQL'];
     }
-    
+
     // PHP projects
     if (stackStr.includes('php')) {
       return ['PHP 8.3+', 'Laravel 11', 'Composer', 'PostgreSQL', 'PHPUnit'];
     }
-    
+
     // Electron projects
     if (stackStr.includes('electron')) {
       return ['Electron (latest)', 'TypeScript', 'Vite', 'React or Vue', 'Tailwind CSS'];
     }
-    
+
     // JavaScript/Node.js projects (default)
     const hasBackend = stackStr.includes('express') || stackStr.includes('node');
     const proposed = ['React', 'TypeScript', 'Vite', 'Tailwind CSS'];
@@ -276,40 +293,44 @@ export class GenerationService {
 
   private generateMigrationPhases(current: string[], proposed: string[]): MigrationPhase[] {
     const stackStr = current.join(' ').toLowerCase();
-    
+
     // Check for each language (order matters - check most specific first)
     if (stackStr.includes('swift')) {
       return getSwiftPhases();
     }
-    
+
     if (stackStr.includes('kotlin')) {
       return getKotlinPhases();
     }
-    
+
     if (stackStr.includes('rust')) {
       return getRustPhases();
     }
-    
+
     if (stackStr.includes('go') || stackStr.includes('golang')) {
       return getGoPhases();
     }
-    
+
     if (stackStr.includes('java')) {
       return getJavaPhases();
     }
-    
+
     if (stackStr.includes('ruby') || stackStr.includes('rails')) {
       return getRubyPhases();
     }
-    
+
     if (stackStr.includes('c#') || stackStr.includes('csharp') || stackStr.includes('.net')) {
       return getCSharpPhases();
     }
-    
-    const isPython = stackStr.includes('python') || stackStr.includes('django') || stackStr.includes('flask') || stackStr.includes('streamlit');
+
+    const isPython =
+      stackStr.includes('python') ||
+      stackStr.includes('django') ||
+      stackStr.includes('flask') ||
+      stackStr.includes('streamlit');
     const isElectron = stackStr.includes('electron');
     const isPHP = stackStr.includes('php');
-    
+
     // Python-specific phases
     if (isPython) {
       return [
@@ -353,7 +374,7 @@ export class GenerationService {
         },
       ];
     }
-    
+
     // Electron-specific phases
     if (isElectron) {
       return [
@@ -397,7 +418,7 @@ export class GenerationService {
         },
       ];
     }
-    
+
     // PHP-specific phases
     if (isPHP) {
       return [
@@ -441,7 +462,7 @@ export class GenerationService {
         },
       ];
     }
-    
+
     // JavaScript/React (default)
     return [
       {

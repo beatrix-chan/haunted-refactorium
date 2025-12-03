@@ -143,7 +143,9 @@ export class DetectionService {
       const content = await fs.readFile(pyprojectPath, 'utf-8');
 
       // Simple regex to find dependencies
-      const depMatches = content.matchAll(/["']([a-zA-Z0-9-_]+)(?:\[.*?\])?([>=<~!]+[^"'\s,\]]+)?["']/g);
+      const depMatches = content.matchAll(
+        /["']([a-zA-Z0-9-_]+)(?:\[.*?\])?([>=<~!]+[^"'\s,\]]+)?["']/g
+      );
       for (const match of depMatches) {
         const name = match[1];
         const version = match[2]?.replace(/[>=<~!]+/, '').trim();

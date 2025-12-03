@@ -18,8 +18,8 @@ export const config = {
   },
 
   huggingface: {
-    apiUrl: process.env.HUGGINGFACE_API_URL || 'https://api-inference.huggingface.co',
-    model: process.env.HUGGINGFACE_MODEL || 'bigcode/starcoder',
+    apiUrl: process.env.HUGGINGFACE_API_URL || 'https://api-inference.huggingface.co/models',
+    model: process.env.HUGGINGFACE_MODEL || 'Qwen/Qwen2.5-Coder-32B-Instruct',
   },
 
   upload: {
