@@ -129,12 +129,58 @@ haunted-refactorium/
 ├── src/
 │   ├── backend/          # Express API
 │   ├── frontend/         # React app
-│   └── shared/           # Shared types
+│   └── shared/           # Shared types & assets
+│       └── assets/fonts/ # Custom fonts (JetBrains Mono, OpenDyslexic)
 ├── docs/                 # VitePress documentation
 ├── tests/                # Test suites
-├── scripts/              # Setup scripts
+├── scripts/              # Setup & utility scripts
+│   ├── setup.ps1         # Windows setup script (PowerShell)
+│   ├── setup.sh          # macOS/Linux setup script (Bash)
+│   └── verify-setup.js   # Setup verification script
 └── docker-compose.yml    # Docker configuration
 ```
+
+## Setup Scripts
+
+The `scripts/` folder contains utilities to automate setup:
+
+### Automated Setup
+
+**Windows (PowerShell):**
+```powershell
+.\scripts\setup.ps1
+```
+
+**macOS/Linux (Bash):**
+```bash
+chmod +x scripts/setup.sh
+./scripts/setup.sh
+```
+
+These scripts will:
+- Check Node.js version (requires 18+)
+- Install npm dependencies
+- Create `.env` file from `.env.example`
+- Create the `uploads/` directory
+- Run setup verification
+
+### Manual Verification
+
+You can also run the verification script separately:
+
+```bash
+npm run verify
+# or
+node scripts/verify-setup.js
+```
+
+This checks:
+- Node.js version
+- Package managers (npm)
+- Docker availability (optional)
+- Required project files
+- Dependencies installation
+- Port availability (3000, 3001)
 
 ## Common Commands
 

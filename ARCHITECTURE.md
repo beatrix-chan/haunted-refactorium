@@ -388,6 +388,39 @@ GET    /api-docs            Swagger documentation
 - Incremental results via WebSocket
 - Complexity limits to prevent hangs
 
+## Project Scripts
+
+The `scripts/` folder contains setup and utility scripts:
+
+### Setup Scripts
+
+| Script | Platform | Purpose |
+|--------|----------|---------|
+| `setup.ps1` | Windows (PowerShell) | Automated setup for Windows |
+| `setup.sh` | macOS/Linux (Bash) | Automated setup for Unix systems |
+| `verify-setup.js` | Cross-platform (Node.js) | Verifies installation |
+
+### What Setup Scripts Do
+
+1. **Check Node.js version** - Ensures Node.js 18+ is installed
+2. **Install dependencies** - Runs `npm install`
+3. **Create .env file** - Copies `.env.example` to `.env`
+4. **Create uploads directory** - Creates `uploads/` folder
+5. **Run verification** - Checks all requirements
+
+### Usage
+
+```bash
+# Windows
+.\scripts\setup.ps1
+
+# macOS/Linux
+./scripts/setup.sh
+
+# Verification only
+npm run verify
+```
+
 ## Future Enhancements
 
 ### Planned Features
