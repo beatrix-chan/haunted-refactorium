@@ -1,5 +1,9 @@
 # 🎃 Haunted Refactorium
 
+![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) [![License](https://img.shields.io/github/license/beatrix-chan/haunted-refactorium?style=for-the-badge)](LICENSE)
+
+![Kiroween](Kiroween.png)
+
 **Where legacy code goes to be resurrected**
 
 Haunted Refactorium is a web application that analyzes legacy codebases to identify code smells, outdated patterns, and technical debt. It provides spooky-themed visualizations of problem areas and generates actionable modernization plans.
@@ -34,9 +38,9 @@ npm run dev:backend
 npm run dev:frontend
 ```
 
-Visit `http://localhost:3000` 🎉
+Visit [`http://localhost:3000`](http://localhost:3000) 🎉
 
-**See the [documentation](docs/) for detailed setup options.**
+**See [QUICKSTART.md](QUICKSTART.md) for detailed setup options.**
 
 ### Local Docker Deployment (Offline-Capable)
 
@@ -50,7 +54,7 @@ docker-compose up
 docker exec -it haunted-ollama ollama pull codellama
 ```
 
-Visit `http://localhost:3000`
+Visit [`http://localhost:3000`](http://localhost:3000)
 
 **Local deployment includes:**
 - Ollama for offline LLM inference
@@ -60,14 +64,6 @@ Visit `http://localhost:3000`
 
 ### Online Deployment (Railway)
 
-For quick demos and public use:
-
-1. Push to GitHub
-2. Connect to Railway
-3. Railway auto-deploys (no Docker needed)
-4. Add Redis add-on (optional)
-
-**Online deployment uses:**
 - Free/public LLM APIs (Hugging Face Inference API)
 - No API keys required
 - Optimized for speed with smaller models
@@ -95,7 +91,7 @@ For quick demos and public use:
 - WebSocket for real-time updates
 
 **AI Integration:**
-- **Local/Offline**: Ollama (CodeLlama, Llama 3)
+- **Local**: Ollama (CodeLlama, Llama 3)
 - **Online**: Hugging Face Inference API (free tier)
 
 **Storage:**
@@ -113,7 +109,7 @@ Toggle between modes in the header:
 
 ## 📚 API Documentation
 
-Interactive API docs available at `http://localhost:3001/api-docs` when running the backend.
+Interactive API docs available at [`http://localhost:3001/api-docs` when running the backend.
 
 ## 🧪 Testing
 
@@ -162,7 +158,7 @@ Contributions welcome! Please follow the existing code style and add tests for n
 
 ## 📄 License
 
-MIT License - see LICENSE file for details
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🎃 Happy Haunting!
 
