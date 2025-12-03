@@ -7,7 +7,7 @@ services:
     image: ollama/ollama:latest
     container_name: haunted-ollama
     ports:
-      - "11434:11434"
+      - '11434:11434'
     volumes:
       - ollama_data:/root/.ollama
     environment:
@@ -19,7 +19,7 @@ services:
     image: redis:7-alpine
     container_name: haunted-redis
     ports:
-      - "6379:6379"
+      - '6379:6379'
     volumes:
       - redis_data:/data
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
       dockerfile: Dockerfile.backend
     container_name: haunted-backend
     ports:
-      - "3001:3001"
+      - '3001:3001'
     environment:
       - NODE_ENV=production
       - DEPLOYMENT_MODE=local
@@ -52,7 +52,7 @@ services:
       dockerfile: Dockerfile.frontend
     container_name: haunted-frontend
     ports:
-      - "3000:80"
+      - '3000:80'
     depends_on:
       - backend
     restart: unless-stopped
