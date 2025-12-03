@@ -64,3 +64,4 @@ temp/
 uploads/
 *.swp
 *.swo
+src/shared/assets/fonts/.gitkeep
