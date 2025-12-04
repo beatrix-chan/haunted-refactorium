@@ -11,7 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'API', link: '/api/overview' },
-      { text: 'GitHub', link: 'https://github.com/beatrix-chan/haunted-refactorium' },
+      { text: 'Swagger', link: 'https://haunted-refactorium-production.up.railway.app/api-docs/' },
     ],
     sidebar: {
       '/guide/': [
@@ -53,13 +53,14 @@ export default defineConfig({
             { text: 'Analysis Endpoint', link: '/api/analysis' },
             { text: 'Proposal Endpoint', link: '/api/proposal' },
             { text: 'Scaffold Endpoint', link: '/api/scaffold' },
+            { text: '🔮 Swagger UI', link: 'https://haunted-refactorium-production.up.railway.app/api-docs/' },
           ],
         },
       ],
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/beatrix-chan/haunted-refactorium' }],
     footer: {
-      message: 'Released under the MIT License.',
+      message: 'Released under the GPL-2.0 License.',
       copyright: 'Copyright © 2025 Beatrix Chan',
     },
   },
