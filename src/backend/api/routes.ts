@@ -45,12 +45,16 @@ router.post('/clone', async (req, res) => {
       return res.status(400).json({ error: 'Repository URL is required' });
     }
 
-    // Validate and normalize GitHub URL
-    const githubUrlPattern = /^https?:\/\/(github\.com|gitlab\.com|bitbucket\.org)\/.+/;
-    if (!githubUrlPattern.test(repoUrl)) {
-      return res
-        .status(400)
-        .json({ error: 'Invalid repository URL. Must be from GitHub, GitLab, or Bitbucket.' });
+    // Validate repository URL - support major public Git hosting platforms
+    const supportedHostsPattern =
+      /^https?:\/\/(github\.com|gitlab\.com|bitbucket\.org|codeberg\.org|sr\.ht|git\.sr\.ht)\/.+/;
+    const isPrivateRepo = repoUrl.endsWith('.git');
+
+    if (!supportedHostsPattern.test(repoUrl) && !isPrivateRepo) {
+      return res.status(400).json({
+        error:
+          'Unsupported repository URL. We currently support GitHub, GitLab, Bitbucket, Codeberg, and SourceHut. For self-hosted Git servers (Gitea, Forgejo, Gerrit) or Azure DevOps, please upload your codebase as a zip archive instead.',
+      });
     }
 
     // Add .git if not present

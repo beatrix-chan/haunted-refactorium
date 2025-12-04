@@ -166,7 +166,8 @@ export default function HomePage() {
               aria-label="GitHub repository URL"
             />
             <p className="text-sm text-gray-400 mt-2">
-              Supports repositories that have Git Hosting. <a href="https://git-scm.com/tools/hosting">Click here to check.</a>
+              Supports repositories on major Git Hosting platforms. Read more{' '}
+              <a href="./docs/guide/features">here</a>.
             </p>
           </div>
         )}
@@ -179,13 +180,13 @@ export default function HomePage() {
             </label>
             <input
               type="file"
-              accept=".zip,.tar,.tar.gz,.tgz,.tar.bz2,.tar.xz,.7z"
+              accept=".7z,.zip,.tar,.tar.gz,.tgz,.tar.bz2,.tar.xz"
               onChange={handleFileChange}
               className="w-full px-4 py-3 bg-haunted-dark rounded border-2 border-haunted-purple focus:border-haunted-orange outline-none"
               aria-label="Upload code archive"
             />
             <p className="text-sm text-gray-400 mt-2">
-              Supported formats: .zip, .tar, .tar.gz, .7z
+              Supported formats: .7z, .zip, .tar, .tar.gz
             </p>
           </div>
         )}

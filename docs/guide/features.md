@@ -4,12 +4,16 @@ Haunted Refactorium provides comprehensive code analysis and modernization tools
 
 ## 🔗 Input Methods
 
-### GitHub Repository Cloning
+### Git Repository Cloning
 
-- Paste any repository URL that supports [Git Hosting](https://git-scm.com/tools/hosting)
+- Paste any public repository URL from GitHub/GitLab/BitBucket/SourceHut/Codeberg/Tangled
 - Automatic shallow cloning for faster downloads
 - No manual download required
-- Works with public repositories
+- Works with public and private repositories
+
+> [!IMPORTANT]
+> 1. Current, Haunted Refactorium only support the above listed platforms. For self-hosting git services, please use [File Upload](#file-upload).
+> 2. Private repositories need to paste in the HTTPS Remote clone URL (e.g. `https://github.com/username/repo-name.git`).
 
 ### File Upload
 

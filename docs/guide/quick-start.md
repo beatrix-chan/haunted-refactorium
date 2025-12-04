@@ -37,7 +37,7 @@ You have two options for providing code to analyze:
    https://github.com/username/repo-name
    ```
    ::: details Repository URL
-   This part is built using the [`simple-git`](https://www.npmjs.com/package/simple-git) package, therefore it works with both repository URL (e.g. `https://github.com/jquery/jquery`) and HTTPS clone web URL (e.g. `https://github.com/jquery/jquery-ui.git`). This ensures support for private repositories as well!
+   This part is built using the [`simple-git`](https://www.npmjs.com/package/simple-git) package, therefore it works with both repository URL (e.g. `https://github.com/jquery/jquery`) and HTTPS clone web URL (e.g. `https://github.com/jquery/jquery-ui.git`). This ensures support for private repositories as well! However, Haunted Refactorium only supports major Git hosting platforms like GitHub, GitLab, BitBucket, Codeberg, and SourceHut, for now.
    :::
 3. Click **🔮 Begin the Haunting**
 
