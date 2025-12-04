@@ -41,13 +41,21 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Routes
 app.use('/api', routes);
 
-// Serve frontend in production
-if (config.nodeEnv === 'production') {
-  app.use(express.static('dist/frontend'));
-  app.get('*', (req, res) => {
-    res.sendFile('dist/frontend/index.html', { root: process.cwd() });
-  });
-}
+// Serve documentation (VitePress build output)
+app.use('/docs', express.static('dist/docs', { index: 'index.html' }));
+app.get('/docs/*', (req, res) => {
+  res.sendFile('dist/docs/index.html', { root: process.cwd() });
+});
+
+// Serve frontend (built by Vite)
+app.use(express.static('dist/frontend'));
+app.get('*', (req, res, next) => {
+  // Skip API routes and docs
+  if (req.path.startsWith('/api') || req.path.startsWith('/docs') || req.path.startsWith('/api-docs')) {
+    return next();
+  }
+  res.sendFile('dist/frontend/index.html', { root: process.cwd() });
+});
 
 // Initialize services
 const ingestionService = new IngestionService();
@@ -57,6 +65,7 @@ ingestionService.initialize().catch(console.error);
 const server = app.listen(config.port, () => {
   console.log(`🎃 Haunted Refactorium backend running on port ${config.port}`);
   console.log(`📚 API docs available at http://localhost:${config.port}/api-docs`);
+  console.log(`📖 Documentation available at http://localhost:${config.port}/docs`);
   console.log(`🔮 Deployment mode: ${config.deploymentMode}`);
 });
 
