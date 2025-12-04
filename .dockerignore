@@ -29,9 +29,9 @@ coverage/
 *.test.ts
 jest.config.cjs
 
-# Documentation (not needed in runtime images)
-docs/
+# Documentation markdown files (keep docs/ folder for VitePress build)
 *.md
+!docs/**/*.md
 LICENSE
 
 # Build artifacts
