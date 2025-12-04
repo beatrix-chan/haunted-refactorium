@@ -2,6 +2,8 @@
 
 ![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) [![License](https://img.shields.io/github/license/beatrix-chan/haunted-refactorium?style=for-the-badge&color=orange)](LICENSE)
 
+![GitHub repo size](https://img.shields.io/github/repo-size/beatrix-chan/haunted-refactorium?style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/beatrix-chan/haunted-refactorium?style=for-the-badge)
+
 ![Kiroween](Kiroween.png)
 
 **Where legacy code goes to be resurrected**
