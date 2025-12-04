@@ -9,7 +9,7 @@
     "dev:frontend": "vite",
     "build:backend": "tsc -p tsconfig.backend.json",
     "build:frontend": "vite build",
-    "build": "npm run build:backend && npm run build:frontend",
+    "build": "npm run build:backend && npm run build:frontend && npm run docs:build",
     "start": "node --import tsx src/backend/index.ts",
     "test": "jest",
     "test:properties": "jest --testMatch='**/*.property.spec.ts'",

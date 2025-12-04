@@ -31,13 +31,15 @@ export default function Header() {
               {theme.spooky ? '🎃 Spooky' : '💼 Professional'}
             </button>
 
-            <button
-              onClick={() => updateTheme({ highContrast: !theme.highContrast })}
+            <a
+              href="/docs"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 bg-haunted-gray rounded hover:bg-haunted-orange transition"
-              aria-label="Toggle high contrast"
+              aria-label="View documentation"
             >
-              {theme.highContrast ? '🔆 High Contrast' : '🌙 Normal'}
-            </button>
+              📚 Docs
+            </a>
 
             <button
               onClick={() =>
