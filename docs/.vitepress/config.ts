@@ -4,10 +4,6 @@ export default defineConfig({
   title: 'Haunted Refactorium',
   description: 'Where legacy code goes to be resurrected',
   base: '/docs/',
-<<<<<<< HEAD
-  outDir: '../dist/docs',
-=======
->>>>>>> 47ceba2dd3260147ac79b71f273b965006ee8932
   ignoreDeadLinks: true,
   themeConfig: {
     logo: '/ghost.svg',
