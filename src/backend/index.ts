@@ -11,7 +11,21 @@ import { IngestionService } from './services/ingestion/ingestion-service';
 const app = express();
 
 // Middleware
-app.use(helmet());
+// Configure helmet with relaxed CSP for docs (VitePress needs inline scripts)
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", 'data:', 'https:'],
+        fontSrc: ["'self'", 'data:'],
+        connectSrc: ["'self'", 'wss:', 'ws:'],
+      },
+    },
+  })
+);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
