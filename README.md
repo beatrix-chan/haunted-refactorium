@@ -220,7 +220,7 @@ Contributions welcome! Please follow the existing code style and add tests for n
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+GNU General Public License v2.0 &mdash; see [LICENSE](LICENSE) file for details.
 
 ## 🎃 Happy Haunting!
 
