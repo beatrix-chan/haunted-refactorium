@@ -1,8 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "./dist/backend"
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "outDir": "./dist",
+    "noImplicitAny": false
   },
   "include": ["src/backend/**/*", "src/shared/**/*"],
   "exclude": ["node_modules", "dist"]
