@@ -1,6 +1,6 @@
 # 🎃 Haunted Refactorium
 
-![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) [![License](https://img.shields.io/github/license/beatrix-chan/haunted-refactorium?style=for-the-badge&color=ffa500)](LICENSE)
+![Kiroween 2025](https://img.shields.io/badge/Kiroween_Hackathon-2025-indigo?style=for-the-badge) [![License](https://img.shields.io/github/license/beatrix-chan/haunted-refactorium?style=for-the-badge&color=orange)](LICENSE)
 
 ![Kiroween](Kiroween.png)
 
@@ -63,7 +63,7 @@ npm run dev:frontend
 
 Visit [`http://localhost:3000`](http://localhost:3000) 🎉
 
-**See [QUICKSTART.md](QUICKSTART.md) for detailed setup options.**
+**See [Quick Start](/docs/guide/quick-start.md) for detailed setup options.**
 
 ### Local Docker Deployment (Offline-Capable)
 
@@ -95,12 +95,16 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 
 ## 📦 Supported Archive Formats
 
-- `.7z`
+- [`.7z`](https://www.7-zip.org/)
 - `.zip`
 - `.tar`, `.tar.gz`, `.tgz`
 - `.tar.bz2`, `.tar.xz`
 
 ## 🛠️ Technology Stack
+
+**AI IDE**
+
+![Kiro](https://skills.syvixor.com/api/icons?i=kiro)
 
 **Frontend:**
 
@@ -125,6 +129,11 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 
 - Redis for caching
 - File system for temporary storage
+
+**Documentation**
+
+- VitePress for developer documentation
+- [SwaggerUI](https://swagger.io/tools/swagger-ui/)
 
 ## 🎨 Theme Customization
 
@@ -174,11 +183,15 @@ Haunted Refactorium prioritizes accessibility:
 
 ## 📖 Documentation
 
+You may check out these links for how Kiro and I planned this project:
+
 - [Product Overview](.kiro/steering/product.md)
 - [Technology Stack](.kiro/steering/tech.md)
 - [Project Structure](.kiro/steering/structure.md)
 - [Modernization Strategy](.kiro/steering/modernization-strategy.md)
 - [Tone and Voice Guidelines](.kiro/steering/tone-and-voice.md)
+
+For official documentation of the app, you may view it on [GitHub](https://github.com/beatrix-chan/haunted-refactorium/tree/main/docs) (completely unorganized...) or [online](https://haunted-refactorium-production.up.railway.app/docs/).
 
 ## 🤝 Contributing
 
