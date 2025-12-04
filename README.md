@@ -102,9 +102,11 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 
 ## 🛠️ Technology Stack
 
+![](https://skills.syvixor.com/api/icons?perline=10&i=kiro,react,ts,vite,tailwind,d3,node,express,treesitter,websocket,prettier,eslint,typescript-eslint,ollama,huggingface,jest,redis,vitepress,swagger,docker,nginx)
+
 **AI IDE**
 
-![Kiro](https://skills.syvixor.com/api/icons?i=kiro)
+- Kiro
 
 **Frontend:**
 
@@ -120,20 +122,39 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 - Tree-sitter for code parsing
 - WebSocket for real-time updates
 
+**Formatting:**
+
+- Prettier
+- Eslint
+- typescript-eslint
+
 **AI Integration:**
 
 - **Local**: Ollama (CodeLlama, Llama 3)
 - **Online**: Hugging Face Inference API (free tier)
+
+**Testing:**
+
+- Jest
 
 **Storage:**
 
 - Redis for caching
 - File system for temporary storage
 
-**Documentation**
+**Documentation:**
 
-- VitePress for developer documentation
+- VitePress
 - [SwaggerUI](https://swagger.io/tools/swagger-ui/)
+
+**Deployment:**
+
+- **Online**: Railway
+- **Local**: Docker
+
+**Web Sever:**
+
+- Nginx
 
 ## 🎨 Theme Customization
 
