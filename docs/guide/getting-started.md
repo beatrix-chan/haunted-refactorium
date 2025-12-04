@@ -88,15 +88,13 @@ docker-compose ps
 docker-compose logs -f
 ```
 
-::: detail Container names
-
+::: details Container names
 - **Ollama**: `haunted-ollama`
 - **Redis**: `haunted-redis`
 - **Backend**: `haunted-backend`
 - **Frontend**: `haunted-frontend`
 
 You may refer to [this](https://github.com/beatrix-chan/haunted-refactorium/blob/main/docker-compose.yml) Docker Compose file.
-
 :::
 
 Access the app at http://localhost:3000

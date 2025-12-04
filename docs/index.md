@@ -114,7 +114,7 @@ Use it online instantly, or deploy locally for private codebases. Your choice.
 </div>
 
 <div style="text-align: center; margin: 2rem 0; color: #888;">
-  Or <a href="/guide/getting-started">deploy your own instance</a> for private codebases
+  Or <a href="docs/guide/getting-started">deploy your own instance</a> for private codebases
 </div>
 
 ---
