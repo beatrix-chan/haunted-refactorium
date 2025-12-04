@@ -14,6 +14,16 @@ import {
   getKotlinPhases,
 } from './migration-phases';
 
+/**
+ * Check if a stack contains a specific language/technology as a whole word.
+ * This prevents "java" from matching "javascript" and vice versa.
+ */
+function hasLanguage(stackStr: string, language: string): boolean {
+  // Use word boundary regex to match whole words only
+  const regex = new RegExp(`\\b${language}\\b`, 'i');
+  return regex.test(stackStr);
+}
+
 export class GenerationService {
   private llmService = createLLMService();
 
@@ -232,7 +242,7 @@ export class GenerationService {
 
     // Java projects (check for actual Java, not JavaScript)
     if (
-      stackStr.includes('java ') ||
+      hasLanguage(stackStr, 'java') ||
       stackStr.includes('spring') ||
       stackStr.includes('maven') ||
       stackStr.includes('gradle')
@@ -240,8 +250,8 @@ export class GenerationService {
       return ['Java 21 LTS', 'Spring Boot 3.x', 'Maven/Gradle', 'PostgreSQL', 'JUnit 5'];
     }
 
-    // Go projects
-    if (stackStr.includes('go') || stackStr.includes('golang')) {
+    // Go projects (use word boundary to avoid matching "golang" substring in other words)
+    if (hasLanguage(stackStr, 'go') || stackStr.includes('golang')) {
       return ['Go 1.22+', 'Gin or Echo', 'GORM', 'PostgreSQL', 'Testify'];
     }
 
@@ -302,11 +312,17 @@ export class GenerationService {
       return getRustPhases();
     }
 
-    if (stackStr.includes('go') || stackStr.includes('golang')) {
+    if (hasLanguage(stackStr, 'go') || stackStr.includes('golang')) {
       return getGoPhases();
     }
 
-    if (stackStr.includes('java')) {
+    // Java projects (check for actual Java, not JavaScript)
+    if (
+      hasLanguage(stackStr, 'java') ||
+      stackStr.includes('spring') ||
+      stackStr.includes('maven') ||
+      stackStr.includes('gradle')
+    ) {
       return getJavaPhases();
     }
 
