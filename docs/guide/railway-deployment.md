@@ -17,7 +17,7 @@ Railway deployment provides:
 ## Prerequisites
 
 - **GitHub account** - For repository hosting
-- **Railway account** - Sign up at [railway.app](https://railway.app)
+- **Railway account** - Sign up at [railway.com](https://railway.com)
 - **Git** - For pushing code
 
 ## Quick Deployment
@@ -35,15 +35,18 @@ git add .
 git commit -m "Initial commit"
 
 # Add remote
-git remote add origin https://github.com/your-username/haunted-refactorium.git
+git remote add origin https://github.com/<username>/haunted-refactorium.git
 
 # Push
 git push -u origin main
 ```
 
+> [!NOTE]
+> Remember to replace `<username>` as your username
+
 ### 2. Connect to Railway
 
-1. Go to [railway.app](https://railway.app)
+1. Go to [railway.com](https://railway.com)
 2. Click **"Sign in with GitHub"**
 3. Authorize Railway
 

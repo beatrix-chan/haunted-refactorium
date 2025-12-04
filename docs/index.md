@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Try It Now
-      link: https://haunted-refactorium.app
+      link: https://haunted-refactorium-production.up.railway.app/
     - theme: alt
       text: Quick Start Guide
       link: /guide/quick-start
