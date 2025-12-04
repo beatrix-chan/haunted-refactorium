@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'Haunted Refactorium',
   description: 'Where legacy code goes to be resurrected',
+  base: '/docs/',
   ignoreDeadLinks: true,
   themeConfig: {
     logo: '/ghost.svg',

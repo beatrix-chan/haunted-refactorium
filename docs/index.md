@@ -108,7 +108,7 @@ Use it online instantly, or deploy locally for private codebases. Your choice.
 ## Ready to Resurrect Your Code?
 
 <div style="text-align: center; margin: 3rem 0;">
-  <a href="https://haunted-refactorium.app" style="display: inline-block; padding: 1rem 2rem; background: #ff6b35; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.2rem;">
+  <a href="https://haunted-refactorium-production.up.railway.app" style="display: inline-block; padding: 1rem 2rem; background: #ff6b35; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.2rem;">
     🔮 Start Analyzing Now
   </a>
 </div>
@@ -127,4 +127,4 @@ Want to contribute or deploy your own instance?
 - 🐳 [Docker Deployment](/guide/docker-deployment) - Deploy with local AI models
 - ☁️ [Railway Deployment](/guide/railway-deployment) - Deploy to the cloud
 - 🔌 [API Reference](/api/overview) - Integrate with your tools
-- 💻 [GitHub Repository](https://github.com/your-org/haunted-refactorium) - Contribute to the project
+- 💻 [GitHub Repository](https://github.com/beatrix-chan/haunted-refactorium) - Contribute to the project
