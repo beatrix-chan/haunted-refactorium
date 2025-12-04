@@ -30,6 +30,7 @@ Haunted Refactorium is a web application that analyzes legacy codebases to ident
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 - [🎃 Happy Haunting!](#-happy-haunting)
+- [Credits](#credits)
 
 </details>
 
