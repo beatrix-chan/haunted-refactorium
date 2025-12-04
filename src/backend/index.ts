@@ -42,15 +42,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api', routes);
 
 // Serve documentation (VitePress build output)
-<<<<<<< HEAD
-app.use('/docs', express.static('dist/docs', { index: 'index.html' }));
-app.get('/docs/*', (req, res) => {
-  res.sendFile('dist/docs/index.html', { root: process.cwd() });
-=======
 app.use('/docs', express.static('docs/.vitepress/dist', { index: 'index.html' }));
 app.get('/docs/*', (req, res) => {
   res.sendFile('docs/.vitepress/dist/index.html', { root: process.cwd() });
->>>>>>> 47ceba2dd3260147ac79b71f273b965006ee8932
 });
 
 // Serve frontend (built by Vite)
