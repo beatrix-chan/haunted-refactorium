@@ -222,8 +222,33 @@ Contributions welcome! Please follow the existing code style and add tests for n
 
 ## 📄 License
 
-GNU General Public License v2.0 &mdash; see [LICENSE](LICENSE) file for details.
+Copyright &copy; 2025 Beatrix CHAN
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 
 ## 🎃 Happy Haunting!
 
 Transform your legacy code from cursed to blessed. Upload your codebase and let the spirits guide your modernization journey.
+
+
+## Credits
+
+> [!IMPORTANT]
+> *Credits are not sponsors! They are just platforms that gave me resources to build this project.*
+
+- [Railway](https://railway.com?referralCode=beatrix-chan) for online deployment: Use [this](https://railway.com?referralCode=beatrix-chan) link to grab $20 credits! That's worth a month of Pro tier.
+- [Shields.io](https://shields.io/) for beautiful badges on this README
+- [Devpost](https://devpost.com) where I found this hackathon.
+- [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct) on HuggingFace as default model on online version.
+- [CodeLlama](https://ollama.com/library/codellama) on Ollama as default model on local version.
+- [Zen Browser](https://zen-browser.app/) for the quite testing environment.
+- [OBS Studio](https://obsproject.com/) for recording.
+- [Open Shot](https://www.openshot.org/) for video editing.
+- [Fast Fetch](https://github.com/fastfetch-cli/fastfetch) and [Starship](https://starship.rs/) to customize my terminal so I don't feel annoyed when anything fails in my terminal.
+- [React Developer Tool](https://react.dev/learn/react-developer-tools) for testing.
+- [Skills icon](https://builder.syvixor.com/)
