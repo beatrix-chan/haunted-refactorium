@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Header() {
   const { theme, updateTheme } = useTheme();
+  const [docsMenuOpen, setDocsMenuOpen] = useState(false);
 
   return (
     <header className="bg-haunted-purple border-b-2 border-haunted-orange">
@@ -31,15 +33,45 @@ export default function Header() {
               {theme.spooky ? '🎃 Spooky' : '💼 Professional'}
             </button>
 
-            <a
-              href="/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-haunted-gray rounded hover:bg-haunted-orange transition"
-              aria-label="View documentation"
+            <div
+              className="relative group"
+              onMouseEnter={() => setDocsMenuOpen(true)}
+              onMouseLeave={() => setDocsMenuOpen(false)}
             >
-              📚 Docs
-            </a>
+              <button
+                className="px-4 py-2 bg-haunted-gray rounded hover:bg-haunted-orange transition flex items-center gap-2"
+                aria-label="Documentation menu"
+                aria-expanded={docsMenuOpen}
+                aria-haspopup="true"
+              >
+                📚 Docs
+                <span className={`transition-transform ${docsMenuOpen ? 'rotate-180' : ''}`}>
+                  ▼
+                </span>
+              </button>
+              {docsMenuOpen && (
+                <div className="absolute right-0 mt-0 pt-2 w-48">
+                  <div className="bg-haunted-gray rounded shadow-lg z-50 border border-haunted-orange">
+                    <a
+                      href="/docs/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-3 hover:bg-haunted-orange transition rounded-t"
+                    >
+                      📖 Documentation
+                    </a>
+                    <a
+                      href="/api-docs/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-3 hover:bg-haunted-orange transition rounded-b"
+                    >
+                      🔧 API Reference
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <button
               onClick={() =>
