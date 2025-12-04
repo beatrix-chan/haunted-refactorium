@@ -14,18 +14,6 @@ We meet **WCAG 2.1 Level AA** standards:
 
 ## Visual Accessibility
 
-### High Contrast Mode
-
-Toggle high contrast for better visibility:
-
-- Pure black background (#000000)
-- Pure white text (#ffffff)
-- Increased contrast ratios (7:1+)
-- Bolder borders and outlines
-- Clearer focus indicators
-
-**How to enable:** Click "🔆 High Contrast" in header
-
 ### Color Contrast
 
 All text meets WCAG AA standards:
@@ -38,7 +26,7 @@ All text meets WCAG AA standards:
 
 ### Font Options
 
-Choose between two fonts:
+Choose between two fonts (they are both [NerdFonts](https://www.nerdfonts.com/)):
 
 **JetBrains Mono (Default):**
 
