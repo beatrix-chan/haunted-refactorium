@@ -6,7 +6,7 @@ hero:
   text: Resurrect Your Legacy Code
   tagline: Transform outdated codebases into modern architectures with AI-powered analysis and spooky visualizations
   image:
-    src: /ghost.svg
+    src: /favicon-512x512.png
     alt: Haunted Refactorium
   actions:
     - theme: brand

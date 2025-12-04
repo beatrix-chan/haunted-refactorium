@@ -50,10 +50,20 @@ const swaggerOptions = {
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, {
+    customfavIcon: '/icons/favicon.ico',
+    customSiteTitle: 'Haunted Refactorium API',
+  })
+);
 
 // Routes
 app.use('/api', routes);
+
+// Serve shared assets (icons/favicons)
+app.use('/icons', express.static('src/shared/assets/icons'));
 
 // Serve documentation (VitePress build output)
 app.use('/docs', express.static('docs/.vitepress/dist', { index: 'index.html' }));

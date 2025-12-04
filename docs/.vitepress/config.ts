@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/docs/',
   ignoreDeadLinks: true,
   themeConfig: {
-    logo: '/ghost.svg',
+    logo: '/favicon-32x32.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/getting-started' },
@@ -63,5 +63,10 @@ export default defineConfig({
       copyright: 'Copyright © 2025 Beatrix Chan',
     },
   },
-  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/ghost.svg' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/docs/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/docs/favicon-16x16.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/docs/favicon-32x32.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/docs/apple-touch-icon.png' }],
+  ],
 });
