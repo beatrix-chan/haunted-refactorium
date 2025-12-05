@@ -18,6 +18,8 @@
 
 > How did you structure your convensations with Kiro to build your project? What was the most impressive code generation Kiro helped you with?
 
+Since Kiro and I have generated all the specs and steering docs prior vibe coding, everything went super smoothly. The best part is Kiro created Haunted Refactorium exactly the same appearance as I have imagined it to be. The only thing is that I might need to search for some more updated packages (would be ironic if Haunted Refactorium is using outdated packages to scan for outdated packages), continuous fix build and deployment errors on Railway with Kiro, rework the routings, etc.
+
 ## Agent Hooks
 
 > What specific workflows did you automate with Kiro hooks? How did these hooks improve your development process?
