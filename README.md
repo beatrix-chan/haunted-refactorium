@@ -11,9 +11,9 @@
 Haunted Refactorium is a web application that analyzes legacy codebases to identify code smells, outdated patterns, and technical debt. It provides spooky-themed visualizations of problem areas and generates actionable modernization plans.
 
 - [3 Minute Features Video](https://youtu.be/0uK8QGzIIyk)
-- [Haunted Refactorium (app)](https://haunted-refactorium-production.up.railway.app)
-- [Haunted Refactorium (documentation)](https://haunted-refactorium-production.up.railway.app/docs/)
-- [Haunted Refactorium (api reference)](https://haunted-refactorium-production.up.railway.app/api-docs/)
+- [Haunted Refactorium (app)](https://haunted-refactorium.onrender.com/)
+- [Haunted Refactorium (documentation)](https://haunted-refactorium.onrender.com/docs/)
+- [Haunted Refactorium (api reference)](https://haunted-refactorium.onrender.com/api-docs/)
 
 <details>
 
@@ -154,7 +154,7 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 
 ## 🛠️ Technology Stack
 
-![](https://skills.syvixor.com/api/icons?perline=11&i=kiro,react,ts,vite,tailwind,d3,node,express,treesitter,websocket,prettier,eslint,typescript-eslint,ollama,huggingface,jest,redis,vitepress,swagger,railway,docker,nginx)
+![](https://skills.syvixor.com/api/icons?perline=11&i=kiro,react,ts,vite,tailwind,d3,node,express,treesitter,websocket,prettier,eslint,typescript-eslint,ollama,huggingface,jest,redis,vitepress,swagger,railway,docker,nginx,render)
 
 **AI IDE**
 
@@ -201,7 +201,7 @@ Visit [`http://localhost:3000`](http://localhost:3000)
 
 **Deployment:**
 
-- **Online**: Railway
+- **Online**: Railway, Render
 - **Local**: Docker
 
 **Web Sever:**
@@ -272,7 +272,7 @@ Contributions welcome! Please follow the existing code style and add tests for n
 
 ## 📄 License
 
-Copyright &copy; 2025 Beatrix CHAN
+Copyright &copy; 2026 Beatrix CHAN
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
@@ -302,3 +302,4 @@ Transform your legacy code from cursed to blessed. Upload your codebase and let 
 - [Fast Fetch](https://github.com/fastfetch-cli/fastfetch) and [Starship](https://starship.rs/) to customize my terminal so I don't feel annoyed when anything fails in my terminal.
 - [React Developer Tool](https://react.dev/learn/react-developer-tools)
 - [Skills icon](https://builder.syvixor.com/)
+- [Render](https://render.com/) so I can redeploy my app online!
