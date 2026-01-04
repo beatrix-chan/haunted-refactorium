@@ -11,7 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'API', link: '/api/overview' },
-      { text: 'Swagger', link: 'https://haunted-refactorium-production.up.railway.app/api-docs/' },
+      { text: 'Swagger', link: 'https://haunted-refactorium.onrender.com/api-docs/' },
     ],
     sidebar: {
       '/guide/': [
@@ -53,7 +53,7 @@ export default defineConfig({
             { text: 'Analysis Endpoint', link: '/api/analysis' },
             { text: 'Proposal Endpoint', link: '/api/proposal' },
             { text: 'Scaffold Endpoint', link: '/api/scaffold' },
-            { text: '🔮 Swagger UI', link: 'https://haunted-refactorium-production.up.railway.app/api-docs/' },
+            { text: '🔮 Swagger UI', link: 'https://haunted-refactorium.onrender.com/api-docs/' },
           ],
         },
       ],
