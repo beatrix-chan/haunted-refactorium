@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Try It Now
-      link: https://haunted-refactorium-production.up.railway.app/
+      link: https://haunted-refactorium.onrender.com/
     - theme: alt
       text: Quick Start Guide
       link: /guide/quick-start
@@ -108,7 +108,7 @@ Use it online instantly, or deploy locally for private codebases. Your choice.
 ## Ready to Resurrect Your Code?
 
 <div style="text-align: center; margin: 3rem 0;">
-  <a href="https://haunted-refactorium-production.up.railway.app" style="display: inline-block; padding: 1rem 2rem; background: #ff6b35; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.2rem;">
+  <a href="https://haunted-refactorium.onrender.com" style="display: inline-block; padding: 1rem 2rem; background: #ff6b35; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.2rem;">
     🔮 Start Analyzing Now
   </a>
 </div>

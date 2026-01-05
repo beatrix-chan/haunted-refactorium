@@ -61,7 +61,7 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/beatrix-chan/haunted-refactorium' }],
     footer: {
       message: 'Released under the GPL-2.0 License.',
-      copyright: 'Copyright © 2025 Beatrix Chan',
+      copyright: 'Copyright © 2026 Beatrix Chan',
     },
   },
   head: [

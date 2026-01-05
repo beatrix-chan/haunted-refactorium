@@ -71,7 +71,7 @@ Railway will:
 Railway provides a URL like:
 
 ```
-https://haunted-refactorium-production.up.railway.app
+https://haunted-refactorium.onrender.com
 ```
 
 ## Configuration

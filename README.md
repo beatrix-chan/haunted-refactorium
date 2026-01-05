@@ -81,6 +81,8 @@ There are actually some features that I wasn't able to implement even though I h
 
 I also have to workout to find alternative platforms where I can host Haunted Refactorium because the free tier will end in 30 days. I will need a platform that can handle the frontend and backend without any file size issues, and it has to be able to run the app, documentation, and api reference smoothly together.
 
+> Update (5<sup>th</sup> Jan, 2026): Migrated to [Render](https://render.com)!
+
 Another ongoing issue is the AI-integration, right now the online version is using free tier HuggingFace model as well and the local version is using Ollama. But I want in the future to maybe allow users to use specific API keys maybe from OpenAI and Claude, so that they can have more accurate result.
 
 ## ✨ Features
@@ -264,7 +266,7 @@ You may check out these links for how Kiro and I planned this project:
 - [Modernization Strategy](.kiro/steering/modernization-strategy.md)
 - [Tone and Voice Guidelines](.kiro/steering/tone-and-voice.md)
 
-For official documentation of the app, you may view it on [GitHub](https://github.com/beatrix-chan/haunted-refactorium/tree/main/docs) (completely unorganized...) or [online](https://haunted-refactorium-production.up.railway.app/docs/).
+For official documentation of the app, you may view it on [GitHub](https://github.com/beatrix-chan/haunted-refactorium/tree/main/docs) (completely unorganized...) or [online](https://haunted-refactorium.onrender.com/docs/).
 
 ## 🤝 Contributing
 
@@ -272,13 +274,13 @@ Contributions welcome! Please follow the existing code style and add tests for n
 
 ## 📄 License
 
-Copyright &copy; 2026 Beatrix CHAN
+**Copyright &copy; 2026 Beatrix CHAN**
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+You should have received a copy of the GNU General Public License along with this program; if not, [open an issue](https://github.com/beatrix-chan/haunted-refactorium/issues).
 
 
 ## 🎃 Happy Haunting!
@@ -301,5 +303,5 @@ Transform your legacy code from cursed to blessed. Upload your codebase and let 
 - [Open Shot](https://www.openshot.org/) for video editing.
 - [Fast Fetch](https://github.com/fastfetch-cli/fastfetch) and [Starship](https://starship.rs/) to customize my terminal so I don't feel annoyed when anything fails in my terminal.
 - [React Developer Tool](https://react.dev/learn/react-developer-tools)
-- [Skills icon](https://builder.syvixor.com/)
+- [Skills icon](https://skills.syvixor.com/)
 - [Render](https://render.com/) so I can redeploy my app online!
