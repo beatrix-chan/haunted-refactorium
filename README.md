@@ -14,6 +14,7 @@ Haunted Refactorium is a web application that analyzes legacy codebases to ident
 - [Haunted Refactorium (app)](https://haunted-refactorium.onrender.com/)
 - [Haunted Refactorium (documentation)](https://haunted-refactorium.onrender.com/docs/)
 - [Haunted Refactorium (api reference)](https://haunted-refactorium.onrender.com/api-docs/)
+- [Read the post on Devpost](https://devpost.com/software/haunted-refactorium)
 
 <details>
 
